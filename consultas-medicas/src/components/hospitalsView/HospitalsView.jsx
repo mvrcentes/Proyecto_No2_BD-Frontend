@@ -1,19 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Navigation from "./navigation/Navigation";
-import CreateHospital from "./CreateHospital";
+import Navigation from "../navigation/Navigation";
+import CreateHospitalView from "./CreateHospitalView";
 
-const HospitalesList = () => {
+import "./HospitalsView.css";
+
+const HospitalsView = () => {
     return (
         <div rel="stylesheet">
             <Navigation />
             <Link className="nav-link active" to="/hospitalForm">
                 <h1>+</h1>
             </Link>
-            <CreateHospital />
+            <div >
+                <CreateHospitalView/>
+            </div>
         </div>
     );
 };
 
-export default HospitalesList;
+export default HospitalsView;
