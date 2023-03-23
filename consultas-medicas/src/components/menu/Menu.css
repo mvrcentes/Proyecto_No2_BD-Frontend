@@ -1,0 +1,40 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    height: auto;
+    width: 100%;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right bottom, rgb(17, 108, 173), rgb(44, 160, 219));
+    
+}
+
+h1.consultas-medicas {
+    color: black;
+    align-self: self-start;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: center;
+    margin: 30px;
+}

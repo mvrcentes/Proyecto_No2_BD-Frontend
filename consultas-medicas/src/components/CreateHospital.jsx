@@ -1,90 +1,120 @@
 import React from "react";
+import axios from "axios";
+import { useEffect } from "react";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
-import "../style/hospital/hospitalList.css";
-import "../style/hospital/hospitalForm.css";
+import "./hospitalForm/hospitalForm.css";
+import "./hospitalCard/hospitalCard.css";
 
-const CreateHospital = () => {
-    const HospitalCard = () => {
-        return (
-            <div className="container-hospital">
-                <div className="column-hospital">
-                    <div className="header-hospital">
-                        <h1>Crear Hospital</h1>
-                    </div>
-                    <div className="body-hospital">
-                        <h4>Informacion</h4>
-                        <hr />
 
-                        <div className="row-information">
-                            <div className="column-information">
-                                <h6>Email</h6>
-                                <p>info@info.com</p>
-                            </div>
+const HospitalCard = ({ nombre, mail, telefono, tipo}) => {
 
-                            <div className="column-information">
-                                <h6>Telefono</h6>
-                                <p>+502 2277-8899</p>
-                            </div>
-                        </div>
-
-                        <div className="row-information">
-                            <div className="column-information">
-                                <h6>website</h6>
-                                <p>www.hospital.com</p>
-                            </div>
-                        </div>
-                    </div>
+    return (
+        <div className="container-hospital">
+            <div className="column-hospital">
+                <div className="header-hospital">
+                    <h1>{ nombre }</h1>
                 </div>
-            </div>
-        );
-    };
-
-    const HospitalCardForm = () => {
-        return (
-            <form className="container-hospital-form">
-                <h1>Registration form</h1>
                 <div className="body-hospital">
-                    <div className="row-information">
-                        <div className="column-information">
-                            <h6>Nombre</h6>
-                            <input type="text"/>
-                        </div>
-                    </div>
-
-                    <div className="row-information">
-                        <div className="column-information">
-                            <h6>Ubicacion</h6>
-                            <input type="text"/>
-                        </div>
-                    </div>
-
-                    <div className="row-information">
-                        <div className="column-information">
-                            <h6>Telefono</h6>
-                            <input type="number" />
-                        </div>
-                    </div>
-
-                    <div className="row-information">
-                        <div className="column-information">
-                            <h6>Website</h6>
-                            <input type="url" />
-                        </div>
-                    </div>
+                    <h4>Informacion</h4>
+                    <hr />
 
                     <div className="row-information">
                         <div className="column-information">
                             <h6>Email</h6>
-                            <input type="email" />
+                            <p>{ mail }</p>
+                        </div>
+
+                        <div className="column-information">
+                            <h6>Telefono</h6>
+                            <p>{ telefono }</p>
+                        </div>
+                    </div>
+
+                    <div className="row-information">
+                        <div className="column-information">
+                            <h6>website</h6>
+                            <p>{ tipo }</p>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+        </div>
+    );
+}
+
+
+export default class CreateHospital extends React.Component {
+
+    // useEffect( async () => {
+    //     const res = await axios.get("http://localhost:3001/hospitals")
+    //     console.log(res)
+    // }, []);
+
+    state = {
+        hospitals: []
+    }
+
+    async componentDidMount() {
+        const res = await axios.get("http://localhost:4000/api/hospitales")
+
+        this.setState({ hospitals: res.data })
+
+        console.log(this.state.hospitals.at(0))
+    }
+
+    // const HospitalCard = () => {ll  
+    render() {
+        return (
+             this.state.hospitals.map(hospital => <HospitalCard key={hospital.id} nombre={hospital.nombre} mail={hospital.direccion} telefono={hospital.telefono} tipo={hospital.tipo}/> ) 
         );
     };
 
-    return <HospitalCardForm />;
+    // const HospitalCardForm = () => {
+    //     return (
+    //         <form className="container-hospital-form">
+    //             <h1>Registration form</h1>
+    //             <div className="body-hospital">
+    //                 <div className="row-information">
+    //                     <div className="column-information">
+    //                         <h6>Nombre</h6>
+    //                         <input type="text"/>
+    //                     </div>
+    //                 </div>
+
+    //                 <div className="row-information">
+    //                     <div className="column-information">
+    //                         <h6>Ubicacion</h6>
+    //                         <input type="text"/>
+    //                     </div>
+    //                 </div>
+
+    //                 <div className="row-information">
+    //                     <div className="column-information">
+    //                         <h6>Telefono</h6>
+    //                         <input type="number" />
+    //                     </div>
+    //                 </div>
+
+    //                 <div className="row-information">
+    //                     <div className="column-information">
+    //                         <h6>Website</h6>
+    //                         <input type="url" />
+    //                     </div>
+    //                 </div>
+
+    //                 <div className="row-information">
+    //                     <div className="column-information">
+    //                         <h6>Email</h6>
+    //                         <input type="email"/>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </form>
+    //     );
+    // };
+
+    // return <HospitalCardForm />;
 };
 
-export default CreateHospital;
+// export default CreateHospital;

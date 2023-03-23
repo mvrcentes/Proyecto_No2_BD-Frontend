@@ -7,7 +7,7 @@ https://codepen.io/FlorinPop17/pen/vPKWjd */
     box-sizing: border-box;
 }
 
-body {
+.login {
     background: #f6f5f7;
     display: flex;
     justify-content: center;

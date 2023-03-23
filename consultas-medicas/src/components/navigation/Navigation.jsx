@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import HospitalesList from "./HospitalesList";
+import HospitalesList from "../HospitalesList";
+
+import "./Navigation.css";
 
 const Navigation = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">
-                    Resultados
+                    Logo
                 </Link>
-                <button
+
+                {/* <button
                     className="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -20,8 +23,9 @@ const Navigation = () => {
                     aria-label="Toggle navigation"
                 >
                     <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                </button> */}
+
+                {/* <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <Link
@@ -32,7 +36,28 @@ const Navigation = () => {
                                 Hospitales
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link active" to="/">
+                                Resultados
+                            </Link>
+                        </li>
                     </ul>
+                </div> */}
+                <div className="orientacion">
+                    <Link className="nav-link active" to="/results/:id">
+                        Resultados
+                    </Link>
+
+                    <Link
+                        className="nav-link active"
+                        aria-current="page"
+                        to="/hospitals"
+                    >
+                        Hospitales
+                    </Link>
+                    <Link className="nav-link active" to="/login">
+                        Login
+                    </Link>
                 </div>
             </div>
         </nav>
