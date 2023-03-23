@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+
+.container-hospital {
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(99, 98, 98, 0.25), 0 10px 10px rgba(99, 98, 98, 0.25);
+    background-color: #e5e5e5;
+}
+
+.header-hospital {
+    /* fallback for old browsers */
+    background: #f6d365;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right bottom, rgb(17, 108, 173), rgb(44, 160, 219));
+    padding: 10px;
+}
+
+h1{
+    font-family: "Montserrat";
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+h4 {
+    font-family: "Montserrat";
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.body-hospital {
+    padding: 15px;
+}
+
+.row-information {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.column-information {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

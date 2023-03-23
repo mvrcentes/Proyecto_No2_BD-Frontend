@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Login from './pages/Login/Login'
 import CreateHospital from './components/CreateHospital'
 import CreateUser from './components/CreateUser'
 import HospitalesList from './components/HospitalesList'
-import Navigation from './components/Navigation'
+
 
 
 function App() {

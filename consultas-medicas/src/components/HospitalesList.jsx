@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+
+import Navigation from "./Navigation";
 
 const HospitalesList = () => {
-  return (
-    <div>HospitalesList</div>
-  )
-}
+    return (
+        <div
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
+        >
+            <Navigation />
+            HospitalesList
+        </div>
+    );
+};
 
-export default HospitalesList
+export default HospitalesList;
