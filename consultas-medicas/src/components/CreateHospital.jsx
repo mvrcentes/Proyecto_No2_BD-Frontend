@@ -2,46 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-import "./hospitalCard/hospitalCard.css";
-
-
-const HospitalCard = ({ nombre, mail, telefono, tipo}) => {
-
-    return (
-        <div className="container-hospital">
-            <div className="column-hospital">
-                <div className="header-hospital">
-                    <h1>{ nombre }</h1>
-                </div>
-                <div className="body-hospital">
-                    <h4>Informacion</h4>
-                    <hr />
-
-                    <div className="row-information">
-                        <div className="column-information">
-                            <h6>Email</h6>
-                            <p>{ mail }</p>
-                        </div>
-
-                        <div className="column-information">
-                            <h6>Telefono</h6>
-                            <p>{ telefono }</p>
-                        </div>
-                    </div>
-
-                    <div className="row-information">
-                        <div className="column-information">
-                            <h6>website</h6>
-                            <p>{ tipo }</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
-
+import HospitalCard from "./hospitalCard/HospitalCard";
 
 export default class CreateHospital extends React.Component {
 
@@ -61,8 +22,7 @@ export default class CreateHospital extends React.Component {
 
         console.log(this.state.hospitals.at(0))
     }
-
-    // const HospitalCard = () => {ll  
+ 
     render() {
         return (
             <div>
@@ -71,5 +31,3 @@ export default class CreateHospital extends React.Component {
         );
     };
 };
-
-// export default CreateHospital;
