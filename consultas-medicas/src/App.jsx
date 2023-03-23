@@ -10,6 +10,7 @@ import Login from './pages/Login/Login'
 import CreateHospital from './components/CreateHospital'
 import CreateUser from './components/CreateUser'
 import HospitalesList from './components/HospitalesList'
+import HospitalCardForm from './components/hospitalForm/HospitalCardForm'
 
 
 
@@ -26,6 +27,8 @@ function App() {
                 <Route path="/user" element={ <CreateUser />} ></Route>
 
                 <Route path="/results/:id" element={ <Results />} ></Route>
+
+                <Route path="/hospitalForm" element={ <HospitalCardForm />} ></Route>
             </Routes>
         </div>
     )

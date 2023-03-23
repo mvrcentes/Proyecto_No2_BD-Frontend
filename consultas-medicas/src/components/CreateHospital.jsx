@@ -3,7 +3,6 @@ import axios from "axios";
 import { useEffect } from "react";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
-import "./hospitalForm/hospitalForm.css";
 import "./hospitalCard/hospitalCard.css";
 
 
@@ -66,55 +65,11 @@ export default class CreateHospital extends React.Component {
     // const HospitalCard = () => {ll  
     render() {
         return (
-             this.state.hospitals.map(hospital => <HospitalCard key={hospital.id} nombre={hospital.nombre} mail={hospital.direccion} telefono={hospital.telefono} tipo={hospital.tipo}/> ) 
+            <div>
+                {this.state.hospitals.map(hospital => <HospitalCard key={hospital.id} nombre={hospital.nombre} mail={hospital.direccion} telefono={hospital.telefono} tipo={hospital.tipo}/> ) }
+            </div>
         );
     };
-
-    // const HospitalCardForm = () => {
-    //     return (
-    //         <form className="container-hospital-form">
-    //             <h1>Registration form</h1>
-    //             <div className="body-hospital">
-    //                 <div className="row-information">
-    //                     <div className="column-information">
-    //                         <h6>Nombre</h6>
-    //                         <input type="text"/>
-    //                     </div>
-    //                 </div>
-
-    //                 <div className="row-information">
-    //                     <div className="column-information">
-    //                         <h6>Ubicacion</h6>
-    //                         <input type="text"/>
-    //                     </div>
-    //                 </div>
-
-    //                 <div className="row-information">
-    //                     <div className="column-information">
-    //                         <h6>Telefono</h6>
-    //                         <input type="number" />
-    //                     </div>
-    //                 </div>
-
-    //                 <div className="row-information">
-    //                     <div className="column-information">
-    //                         <h6>Website</h6>
-    //                         <input type="url" />
-    //                     </div>
-    //                 </div>
-
-    //                 <div className="row-information">
-    //                     <div className="column-information">
-    //                         <h6>Email</h6>
-    //                         <input type="email"/>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </form>
-    //     );
-    // };
-
-    // return <HospitalCardForm />;
 };
 
 // export default CreateHospital;

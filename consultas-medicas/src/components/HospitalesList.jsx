@@ -1,14 +1,17 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Navigation from './navigation/Navigation'
+import Navigation from "./navigation/Navigation";
 
 const HospitalesList = () => {
     return (
-        <div rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+        <div rel="stylesheet">
             <Navigation />
-            HospitalesList
-    </div>
-    )
-}
+            <Link className="nav-link active" to="/hospitalForm">
+                <h1>+</h1>
+            </Link>
+        </div>
+    );
+};
 
-export default HospitalesList
+export default HospitalesList;

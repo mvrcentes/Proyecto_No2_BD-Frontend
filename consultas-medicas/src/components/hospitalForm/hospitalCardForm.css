@@ -1,5 +1,11 @@
+.hospitalCardForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .container-hospital-form {
-    display: flex;    
     overflow: hidden;
     width: 550px;
     height: 700px;
