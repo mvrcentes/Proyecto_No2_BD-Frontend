@@ -1,12 +1,13 @@
 import "./HospitalCard.css";
 
-const HospitalCard = ({ nombre, mail, telefono, tipo }) => {
+const HospitalCard = ({ nombre, direccion, telefono, mail, website, tipo }) => {
     return (
         <div>
             <div className="container-hospital">
                 <div className="column-hospital">
                     <div className="header-hospital">
                         <h1>{nombre}</h1>
+                        <div className={`tipo ${tipo}`}>{ tipo }</div>
                     </div>
                     <div className="body-hospital">
                         <h4>Informacion</h4>
@@ -14,8 +15,8 @@ const HospitalCard = ({ nombre, mail, telefono, tipo }) => {
 
                         <div className="row-information">
                             <div className="column-information">
-                                <h6>Email</h6>
-                                <p>{mail}</p>
+                                <h6>Direccion</h6>
+                                <p>{direccion}</p>
                             </div>
 
                             <div className="column-information">
@@ -26,8 +27,16 @@ const HospitalCard = ({ nombre, mail, telefono, tipo }) => {
 
                         <div className="row-information">
                             <div className="column-information">
+                                <h6>Mail</h6>
+                                <p>{mail}</p>
+                            </div>
+                        </div>
+                        
+
+                        <div className="row-information">
+                            <div className="column-information">
                                 <h6>website</h6>
-                                <p>{tipo}</p>
+                                <p>{website}</p>
                             </div>
                         </div>
                     </div>

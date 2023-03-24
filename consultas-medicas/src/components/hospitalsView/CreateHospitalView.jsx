@@ -25,7 +25,7 @@ export default class CreateHospital extends React.Component {
     render() {
         return (
             <div className="hospitals-container">
-                {this.state.hospitals.map(hospital => <HospitalCard key={hospital.id} nombre={hospital.nombre} mail={hospital.direccion} telefono={hospital.telefono} tipo={hospital.tipo}/> ) }
+                {this.state.hospitals.map(hospital => <HospitalCard key={hospital.id} nombre={hospital.nombre} direccion={hospital.direccion} mail={hospital.mail} telefono={hospital.telefono} website={hospital.website} tipo={hospital.tipo}/> ) }
             </div>
         );
     };
