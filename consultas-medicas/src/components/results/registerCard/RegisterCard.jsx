@@ -1,7 +1,7 @@
-function Results() {
+function RegisterCard() {
   return (
-    <div>Results</div>
+    <div>RegisterCard</div>
   )
 }
 
-export default Results
+export default RegisterCard
