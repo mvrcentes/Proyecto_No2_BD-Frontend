@@ -1,0 +1,29 @@
+.informationCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: flex-start;
+    width: 335px;
+    height: 485px;    
+    background-color: #c2c1c1;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.patient {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+.inputForm {
+    padding: 1rem;
+    background-color: #F4F5FE;
+    height: 40px;
+}
+
+.label-form {
+    margin-bottom: 0;
+}
