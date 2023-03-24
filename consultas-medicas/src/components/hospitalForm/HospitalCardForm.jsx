@@ -4,6 +4,7 @@ import "./HospitalCardForm.css";
 
 import axios from "axios";
 import { Component } from "react";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export default class HospitalCardForm extends Component {
     state = {
@@ -12,6 +13,7 @@ export default class HospitalCardForm extends Component {
         telefono: "",
         website: "",
         email: "",
+        tipo: "",
     };
 
     onChangeName = (e) => {
@@ -44,21 +46,39 @@ export default class HospitalCardForm extends Component {
         });
     };
 
+    onChangeType = (e) => {
+        this.setState({
+            tipo: e,
+        });
+        console.log(e)
+        console.log(this.validateType())
+    };
+
+    validateType = (e) => {
+        if (this.state.tipo === "") {
+            return true;
+        } else {
+            return false;
+        }
+    };
+
+
     // async componentDidMount() {
     //     const res = await axios.get("http://localhost:4000/api/hospitales");
     //     this.setState({ hospitals: res.data });
     //     console.log("res", this.stateHospital.hospitals);
     // }
 
-    onSubmit = (e) => {
+    onSubmit = async (e) => {
         e.preventDefault();
         // const response = await axios.get("http://localhost:4000/api/hospitales")
-        const res = axios.post("http://localhost:4000/api/hospitales", {
+        const res = await axios.post("http://192.168.1.6:4000/api/hospitales", {
             name: this.state.nombre,
             address: this.state.direccion,
             phone: this.state.telefono,
             website: this.state.website,
             email: this.state.email,
+            type: this.state.tipo,
         });
     };
 
@@ -82,6 +102,24 @@ export default class HospitalCardForm extends Component {
                                         type="text"
                                         onChange={this.onChangeName}
                                     />
+                                </div>
+                            </div>
+
+                            <div className="row-information">
+                                <div className="column-information">
+                                    <h6>Tipo</h6>
+                                    <Dropdown onSelect={this.onChangeType}>
+                                        <Dropdown.Toggle  id="dropdown-basic">
+                                            {this.validateType() ? "Tipo" : this.state.tipo}
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu>
+                                            <Dropdown.Item eventKey="Hospital">Hospital</Dropdown.Item>
+                                            <Dropdown.Item eventKey="Centro de salud">Centro de salud</Dropdown.Item>
+                                            <Dropdown.Item eventKey="Clinica">Clinica</Dropdown.Item>
+                                            <Dropdown.Item eventKey="Laboratorio">Laboratorio</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 </div>
                             </div>
 
