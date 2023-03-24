@@ -1,0 +1,20 @@
+.register {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-items: center;
+    padding: 5px;
+    gap: 35px;
+    height: 50px;
+    padding-left: 25px;
+    background: #FFFFFF;
+    border-bottom: 0.1px solid #6d6d6d59;
+}
+
+.fecha{
+    width: 100px;
+}
+
+.nombreDoctor {
+    width: 200px;
+}

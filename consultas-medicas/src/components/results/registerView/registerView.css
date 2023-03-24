@@ -1,0 +1,23 @@
+.searchBar {
+    background-color: #86CEE4;
+    opacity: 65%;
+    border-radius: 5px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.registerView {
+    background-color: #F2F2F2;
+}
+
+.CreateRegisterViewContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}

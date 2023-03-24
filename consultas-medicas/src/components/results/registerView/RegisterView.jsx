@@ -1,6 +1,20 @@
-function registerView() {
+import Navigation from "../../navigation/Navigation"
+import CreateRegisterView from "./CreateRegisterView"
+import SearchBar from "../../searchBar/SearchBar"
+
+import "./registerView.css"
+
+const registerView = () => {
   return (
-    <div>registerView</div>
+    <div className="registerView">
+        <Navigation />
+        <div className="searchBar">
+            <SearchBar />
+        </div>
+        <div className="CreateRegisterViewContainer">
+            <CreateRegisterView />
+        </div>
+    </div>
   )
 }
 

@@ -5,7 +5,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import Menu from './components/menu/Menu'
-import Results from './components/results/Results'
+import RegisterView from './components/results/registerView/RegisterView'
 import Login from './pages/Login/Login'
 
 import CreateUser from './components/CreateUser'
@@ -25,7 +25,7 @@ function App() {
                 
                 <Route path="/user" element={ <CreateUser />} ></Route>
 
-                <Route path="/results/:id" element={ <Results />} ></Route>
+                <Route path="/results/:id" element={ <RegisterView />} ></Route>
 
                 <Route path="/hospitalForm" element={ <HospitalCardForm />} ></Route>
             </Routes>
