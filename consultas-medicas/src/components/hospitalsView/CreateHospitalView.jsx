@@ -18,7 +18,7 @@ export default class CreateHospital extends React.Component {
 
     async componentDidMount() {
         //cambiar la ip por la del servidor
-        const res = await axios.get("http://172.20.10.4:4000/api/hospitales")
+        const res = await axios.get("http://10.100.0.226:4000/api/hospitales")
 
         this.setState({ hospitals: res.data })
     }
