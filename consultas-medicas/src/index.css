@@ -1,6 +1,15 @@
 :root{
     --main-color: #ffffff;
     --second-color: #F4F5FE;
+
+    --main-hospital-color: #FFB7B7;
+    --second-hospital-color: #ED461D;
+
+    --main-centroSalud-color: #D4FFE5;
+    --second-centroSalud-color: #2CBD66;
+
+    --main-laboratorio-color: #97D6EA;
+    --second-laboratorio-color: #1D9BED;
 }
 
 html {

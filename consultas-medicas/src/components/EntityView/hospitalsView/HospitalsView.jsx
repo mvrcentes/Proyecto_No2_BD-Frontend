@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Navigation from "../navigation/Navigation";
+import Navigation from "../../navigation/Navigation";
 import CreateHospitalView from "./CreateHospitalView";
 
 import "./HospitalsView.css";

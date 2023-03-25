@@ -1,13 +1,17 @@
 import "./HospitalCard.css";
 
 const HospitalCard = ({ nombre, direccion, telefono, mail, website, tipo }) => {
+
+    tipo = tipo.toLowerCase()
     return (
         <div>
             <div className="container-hospital">
                 <div className="column-hospital">
-                    <div className="header-hospital">
+                    <div className={`header-hospital ${tipo}`}>
                         <h1>{nombre}</h1>
-                        <div className={`tipo ${tipo}`}>{ tipo }</div>
+                        <div className={`tipo ${tipo}`}>
+                            <div className="tipoLabel">{ tipo.replace("_de_", " de ") }</div>
+                        </div>
                     </div>
                     <div className="body-hospital">
                         <h4>Informacion</h4>

@@ -8,9 +8,8 @@ import Menu from './components/menu/Menu'
 import RegisterView from './components/results/registerView/RegisterView'
 import Login from './pages/Login/Login'
 
-import CreateUser from './components/CreateUser'
-import HospitalsView from './components/hospitalsView/HospitalsView'
-import HospitalCardForm from './components/hospitalForm/HospitalCardForm'
+// import CreateUser from './components/CreateUser'
+import HospitalsView from './components/EntityView/hospitalsView/HospitalsView'
 
 import InformationCard from './components/EmployeeView/informationCard/InformationCard'
 import CardFormPatient from './components/EmployeeView/cardFormPatient/CardFormPatient'
@@ -22,15 +21,13 @@ function App() {
     return (
         <div className="App">            
             <Routes>
-                <Route path="/" element={ <Menu /> }></Route>
+                <Route path="/" element={<Menu />}></Route>
                 <Route path="/login" element={ <Login /> }></Route>
                 <Route path="/hospitals" element={ <HospitalsView /> }></Route>
                 
-                <Route path="/user" element={ <CreateUser />} ></Route>
+                {/* <Route path="/user" element={ <CreateUser />} ></Route> */}
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
-
-                <Route path="/hospitalForm" element={ <HospitalCardForm />} ></Route>
 
                 <Route path="/card" element={ <EmloyeeView />} ></Route>
             </Routes>
