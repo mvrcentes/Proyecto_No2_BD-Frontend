@@ -25,7 +25,7 @@ const InformationCard = () => {
             </Form.Group>
 
             <Form.Group as={Col} md="0" controlId="validationCustom02" className="formGroup">
-                <Form.Label className="label-form">Apellidos</Form.Label>
+                <Form.Label >Apellidos</Form.Label>
                 <Form.Control
                     required
                     type="text"

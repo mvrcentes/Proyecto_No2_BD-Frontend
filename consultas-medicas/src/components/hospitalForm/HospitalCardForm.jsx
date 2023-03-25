@@ -72,7 +72,7 @@ export default class HospitalCardForm extends Component {
     onSubmit = async (e) => {
         e.preventDefault();
         // const response = await axios.get("http://localhost:4000/api/hospitales")
-        const res = await axios.post("http://192.168.1.6:4000/api/hospitales", {
+        const res = await axios.post("http://172.20.10.4:4000/api/hospitales", {
             name: this.state.nombre,
             address: this.state.direccion,
             phone: this.state.telefono,
