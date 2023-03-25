@@ -14,6 +14,7 @@ import HospitalCardForm from './components/hospitalForm/HospitalCardForm'
 
 import InformationCard from './components/EmployeeView/informationCard/InformationCard'
 import CardFormPatient from './components/EmployeeView/cardFormPatient/CardFormPatient'
+import EmloyeeView from './components/EmployeeView/EmloyeeView'
 
 
 
@@ -31,7 +32,7 @@ function App() {
 
                 <Route path="/hospitalForm" element={ <HospitalCardForm />} ></Route>
 
-                <Route path="/card" element={ <CardFormPatient />} ></Route>
+                <Route path="/card" element={ <EmloyeeView />} ></Route>
             </Routes>
         </div>
     )

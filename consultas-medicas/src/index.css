@@ -1,0 +1,17 @@
+:root{
+    --main-color: #ffffff;
+    --second-color: #F4F5FE;
+}
+
+html {
+    height: 100vh;
+}
+
+body{
+    background-color: var(--main-color);
+    height: 100%;
+}
+
+.root {
+    height: 100%;
+}

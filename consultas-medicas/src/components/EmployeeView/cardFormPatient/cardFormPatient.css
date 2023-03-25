@@ -27,12 +27,12 @@
 .cardFormPatient {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 20px;
 }
 
 .title {
     font-weight: 600;
-    margin: 25px 20px 10px 25px;
+    margin: 20px 0px 20px 0px;
 }
 
 .fila {
@@ -41,6 +41,3 @@
     gap : 15px;
 }
 
-.note {
-    margin: 10px 25px 25px 25px;
-}

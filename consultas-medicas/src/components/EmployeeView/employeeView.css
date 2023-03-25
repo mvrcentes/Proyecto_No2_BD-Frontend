@@ -1,0 +1,93 @@
+@import "../../index.css";
+
+.buttonMenu {
+    background-color: var(--second-color);
+    height: 60px;
+    width: 200px;
+    border-radius: 15px;
+}
+
+.buttonMenuContainer {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px !important;
+}
+
+.icon {
+    width: 25px;
+    height: 60px;
+}
+
+.employeeView {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+.menuEmployee {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 310px;
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+.menuEmployeeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+    margin-left: 30px;
+    height: 100%;
+}
+
+.menuEmployeeContainer:nth-child(4) {
+    margin-top: 100px;
+}
+
+.rightSide {
+    height: 100%;
+    width: 100%;
+}
+
+.fondo {
+    display: flex;
+    background-color: var(--second-color);
+    border-radius: 20px;
+    margin: 5px 10px 5px 5px;
+    height: 100%;
+}
+
+.fondoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    margin: 70px 50px 30px 50px;
+    gap: 25px;
+}
+
+.fondoContainerLeft {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    gap: 15px;
+}
+
+.rowContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 25px;
+}
+
