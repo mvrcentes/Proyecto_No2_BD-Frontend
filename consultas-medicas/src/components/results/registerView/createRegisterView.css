@@ -1,12 +1,12 @@
 .createRegisterCard {
     align-self: center;
     justify-self: center;
-    background-color: white;
+    background-color: var(--main-color);
     height: auto;
-    width: 1820px;
+    width: 50%; 
     overflow: hidden;
     border-radius: 10px;
-    margin: 5px 30px 30px 30px;
+    margin: 15px 85px 50px 85px;
 }
 
 /* @media screen and (max-width: 768px) {
