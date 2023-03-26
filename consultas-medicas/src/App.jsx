@@ -16,7 +16,9 @@ import InformationCard from './components/EmployeeView/informationCard/Informati
 import CardFormPatient from './components/EmployeeView/cardFormPatient/CardFormPatient'
 import EmloyeeView from './components/EmployeeView/EmloyeeView'
 
+import AdminView from './components/AdminView/AdminView'
 import View from './components/view/View'
+import SearchBar from './components/searchBar/SearchBar'
 
 
 function App() {
@@ -33,7 +35,7 @@ function App() {
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
 
-                <Route path="/card" element={ <View />} ></Route>
+                <Route path="/card" element={ <SearchBar />} ></Route>
             </Routes>
         </div>
     )

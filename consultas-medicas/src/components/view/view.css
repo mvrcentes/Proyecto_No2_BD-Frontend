@@ -60,10 +60,15 @@
 
 .fondoContainer{
     display: flex;
-    flex-direction: row;
+    
     justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
     margin: 70px 50px 30px 50px;
     gap: 25px;
+}
+
+.fondoContainer.row {
+    flex-direction: row;
+    gap: 15px;
 }

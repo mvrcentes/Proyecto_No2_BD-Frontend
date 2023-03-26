@@ -1,14 +1,17 @@
 //funciones
 import { Link } from 'react-router-dom';
 
+//style
+import './View.css'
+
 //iconos
 import menu_doctor from '../../assets/menu-doctor.svg'
 import menu_entidad from '../../assets/menu-entidad.svg'
 import signOut from '../../assets/SignOut.svg'
 
-//style
-import './View.css'
 
+import EntityForm from "../AdminView/entityForm/EntityForm"
+import CreateHospitalView from "../EntityView/hospitalsView/CreateHospitalView"
 
 const ButtonMenu = ({ icon, text }) => {
     return (
@@ -21,12 +24,15 @@ const ButtonMenu = ({ icon, text }) => {
     );
 };
 
-function View({menuOptions}) {
+function View({menuOptions, tipo, componentes}) {
 
-    menuOptions = {
-        //menu: [[icono, texto], [icono, texto]]
-        menu: [[menu_doctor, "doctores"], [menu_entidad, "entidades"], [signOut, "salir"]]
-    }
+    menuOptions = [
+        [menu_doctor, "doctores"], [menu_entidad, "entidades"], [signOut, "salir"]
+    ]
+
+    tipo = "row"
+
+    componentes = [EntityForm, CreateHospitalView]
 
     return (
         <div className="view">
@@ -35,13 +41,13 @@ function View({menuOptions}) {
                     <Link to="/">
                         <h1>Logo</h1>
                     </Link>
-                    {menuOptions.menu.map((opcion) => (<ButtonMenu icon={opcion[0]} text={opcion[1]} />))}
+                    {menuOptions.map((opcion) => (<ButtonMenu icon={opcion[0]} text={opcion[1]} />))}
                 </div>
             </div>
             <div className="rightSide">
                 <div className="fondo">
-                    <div className="fondoContainer">
-                        
+                    <div className={`fondoContainer ${tipo}`}>
+                        {componentes.map(componente => <div element={componente} />)}
                     </div>
                 </div>
             </div>
