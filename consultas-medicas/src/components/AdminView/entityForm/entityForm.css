@@ -64,6 +64,10 @@ h6 {
     align-self: center;
 }
 
+.input-EntityForm {
+    background-color: var(--second-color);
+}
+
 input {
     border-radius: 10px;
     appearance: none;

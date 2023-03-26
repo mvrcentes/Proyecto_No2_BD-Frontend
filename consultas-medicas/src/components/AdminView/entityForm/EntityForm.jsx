@@ -98,14 +98,18 @@ export default class EntityForm extends Component {
                                 <input
                                     type="text"
                                     onChange={this.onChangeName}
+                                    placeholder="Nombre"
+                                    className="input-EntityForm"
                                 />
                             </div>
 
                             <div className="form-information">
-                                <h6>Ubicación</h6>
+                                <h6>Dirección</h6>
                                 <input
                                     type="text"
                                     onChange={this.onChangeName}
+                                    placeholder="Dirección"
+                                    className="input-EntityForm"
                                 />
                             </div>
 
@@ -114,6 +118,8 @@ export default class EntityForm extends Component {
                                 <input
                                     type="text"
                                     onChange={this.onChangeName}
+                                    placeholder="Teléfono"
+                                    className="input-EntityForm"
                                 />
                             </div>
 
@@ -122,6 +128,8 @@ export default class EntityForm extends Component {
                                 <input
                                     type="text"
                                     onChange={this.onChangeName}
+                                    placeholder="Website"
+                                    className="input-EntityForm"
                                 />
                             </div>
 
@@ -130,6 +138,8 @@ export default class EntityForm extends Component {
                                 <input
                                     type="text"
                                     onChange={this.onChangeName}
+                                    placeholder="Correo"
+                                    className="input-EntityForm"
                                 />
                             </div>
 
