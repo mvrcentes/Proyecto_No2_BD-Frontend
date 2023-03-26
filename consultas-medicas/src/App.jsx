@@ -11,10 +11,12 @@ import Login from './pages/Login/Login'
 // import CreateUser from './components/CreateUser'
 import HospitalsView from './components/EntityView/hospitalsView/HospitalsView'
 
+
 import InformationCard from './components/EmployeeView/informationCard/InformationCard'
 import CardFormPatient from './components/EmployeeView/cardFormPatient/CardFormPatient'
 import EmloyeeView from './components/EmployeeView/EmloyeeView'
 
+import EntityForm from './components/AdminView/entityForm/EntityForm'
 
 
 function App() {
@@ -23,8 +25,10 @@ function App() {
             <Routes>
                 <Route path="/" element={<Menu />}></Route>
                 <Route path="/login" element={ <Login /> }></Route>
-                <Route path="/hospitals" element={ <HospitalsView /> }></Route>
                 
+                <Route path="/hospitals" element={ <HospitalsView /> }></Route>
+                <Route path="/hospitalForm" element={ <EntityForm /> }></Route>
+
                 {/* <Route path="/user" element={ <CreateUser />} ></Route> */}
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
