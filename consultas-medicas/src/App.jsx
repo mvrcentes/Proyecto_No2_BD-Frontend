@@ -35,7 +35,7 @@ function App() {
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
 
-                <Route path="/card" element={ <SearchBar />} ></Route>
+                <Route path="/card" element={ <AdminView />} ></Route>
             </Routes>
         </div>
     )

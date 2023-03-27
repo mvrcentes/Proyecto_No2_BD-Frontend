@@ -86,7 +86,7 @@ export default class EntityForm extends Component {
             <div className="entityForm">
                 <div className="containerEntityForm">
                     
-                    <h1>Registrar entidad</h1>
+                    <h1 className="title">Registrar entidad</h1>
 
                     <form
                         className="container-entity-form"
@@ -142,8 +142,8 @@ export default class EntityForm extends Component {
                                     className="input-EntityForm"
                                 />
                             </div>
-
-                            <div className="row-information">
+        
+                            <div className="form-information">
                                 <div className="column-information">
                                     <h6>Tipo</h6>
                                     <Dropdown onSelect={this.onChangeType}>

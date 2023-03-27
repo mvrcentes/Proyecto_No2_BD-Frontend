@@ -24,16 +24,7 @@ const ButtonMenu = ({ icon, text }) => {
     );
 };
 
-function View({menuOptions, tipo, componentes}) {
-
-    menuOptions = [
-        [menu_doctor, "doctores"], [menu_entidad, "entidades"], [signOut, "salir"]
-    ]
-
-    tipo = "row"
-
-    componentes = [EntityForm, CreateHospitalView]
-
+function View({menuOptions, tipo, children}) {
     return (
         <div className="view">
             <div className="menuView">
@@ -47,7 +38,7 @@ function View({menuOptions, tipo, componentes}) {
             <div className="rightSide">
                 <div className="fondo">
                     <div className={`fondoContainer ${tipo}`}>
-                        {componentes.map(componente => <div element={componente} />)}
+                        {children}
                     </div>
                 </div>
             </div>

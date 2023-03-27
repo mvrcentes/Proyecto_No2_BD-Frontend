@@ -1,3 +1,40 @@
 .adminView {
     height: 400px;
 }
+
+.viewContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.entityFormContainer {
+    display: inline-block
+}
+
+.RightSideComponent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.RightSideComponent:nth-child(0) {
+    align-self: flex-end;
+}
+
+.rightSideContainer {
+    margin: 30px
+}
+
+.searchBarContainer{
+    display: flex;
+    justify-content: flex-end;
+    /* margin: 10px; */
+}
+
+.createHospitalViewContainer {
+    height: 500px;
+    margin-bottom: 30px;
+}
