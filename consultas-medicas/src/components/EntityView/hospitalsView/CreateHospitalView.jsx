@@ -1,33 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import HospitalCard from "../hospitalCard/HospitalCard";
 
 import "./CreateHospitalView.css";
 
-export default class CreateHospital extends React.Component {
+const CreateHospital = ({ search }) => {
+    const [entities, setEntities] = useState([]);
 
-    // useEffect( async () => {
-    //     const res = await axios.get("http://localhost:3001/hospitals")
-    //     console.log(res)
-    // }, []);
-
-    state = {
-        hospitals: []
+    const fetchData = async () => {
+        const res = await axios.get("http://10.100.13.215:4000/api/hospitales")
+        setEntities(res.data)
     }
 
-    async componentDidMount() {
-        //cambiar la ip por la del servidor
-        const res = await axios.get("http://localhost:4000/api/hospitales")
+    useEffect(() => {
+        fetchData()
+    }, [entities]);
 
-        this.setState({ hospitals: res.data })
-    }
- 
-    render() {
-        return (
-            <div className="hospitals-container">
-                {this.state.hospitals.map(hospital => <HospitalCard key={hospital.id} nombre={hospital.nombre} direccion={hospital.direccion} mail={hospital.mail} telefono={hospital.telefono} website={hospital.website} tipo={hospital.tipo}/> ) }
-            </div>
-        );
-    };
+    const filteredEntities = search
+        ? entities.filter((hospital) =>
+              hospital.nombre.toLowerCase().includes(search.toLowerCase())
+          )
+        : entities;
+
+    return (
+        <div className="hospitals-container">
+            {filteredEntities.map((hospital) => (
+                <HospitalCard
+                    key={hospital.id}
+                    nombre={hospital.nombre}
+                    direccion={hospital.direccion}
+                    mail={hospital.mail}
+                    telefono={hospital.telefono}
+                    website={hospital.website}
+                    tipo={hospital.tipo}
+                />
+            ))}
+        </div>
+    );
 };
+
+export default CreateHospital;
