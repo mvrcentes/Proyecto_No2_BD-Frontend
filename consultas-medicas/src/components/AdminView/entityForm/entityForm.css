@@ -1,10 +1,17 @@
 .entityForm {
     display: inline-block;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    min-width: 400px;
 }
 
-.containerentityForm {
-    display: flex;
+.containerEntityForm {
     background-color: var(--main-color);
+    margin: 40px;
+}
+
+h1.title {
+    font-size: 23px;
 }
 
 .container-entity-form {
@@ -28,7 +35,8 @@
 
 .form-information{
     margin-top: 10px;
-    min-width: 400px;
+    margin:  0px 10px 0px 10px;
+    width: 1fr;
 }
 
 .hospitalCardForm {
