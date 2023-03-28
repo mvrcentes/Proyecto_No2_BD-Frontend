@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import HospitalCard from "../hospitalCard/HospitalCard";
+import HospitalCard from "../entityCard/EntityCard";
 
 import "./CreateHospitalView.css";
 
