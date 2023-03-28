@@ -3,7 +3,7 @@ import axios from "axios";
 
 import HospitalCard from "../entityCard/EntityCard";
 
-import "./CreateHospitalView.css";
+import "./CreateEntityView.css";
 
 const CreateHospital = ({ search }) => {
     const [entities, setEntities] = useState([]);
