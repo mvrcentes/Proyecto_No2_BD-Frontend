@@ -11,7 +11,7 @@ import signOut from '../../assets/SignOut.svg'
 
 
 import EntityForm from "../AdminView/entityForm/EntityForm"
-import CreateHospitalView from "../EntityView/hospitalsView/CreateHospitalView"
+import CreateHospitalView from "../EntityView/EntityView/CreateEntityView"
 
 const ButtonMenu = ({ icon, text }) => {
     return (

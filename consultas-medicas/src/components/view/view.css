@@ -16,6 +16,10 @@
     height: 60px;
 }
 
+.text {
+    align-self: center;
+}
+
 .view {
     display: flex;
     flex-direction: row;
