@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
 //view
-import View from "../view/View";
+import View from "../../view/View";
 
 //components
-import EntityForm from "./entityForm/EntityForm";
-import CreateHospitalView from "../EntityView/hospitalsView/CreateHospitalView"
-import SearchBar from "../searchBar/SearchBar"
+import EntityForm from "../entityForm/EntityForm";
+import CreateEntityView from "../../EntityView/EntityView/CreateEntityView"
+import SearchBar from "../../searchBar/SearchBar"
 
 //iconos
-import menu_doctor from "../../assets/menu-doctor.svg"
-import menu_entidad from "../../assets/menu-entidad.svg"
-import signOut from "../../assets/SignOut.svg"
+import menu_doctor from "../../../assets/menu-doctor.svg"
+import menu_entidad from "../../../assets/menu-entidad.svg"
+import signOut from "../../../assets/SignOut.svg"
 
 //style
 import "./adminViewEntities.css"
@@ -41,8 +41,8 @@ const AdminViewEntities = () => {
                     <div className="searchBarContainer">
                         <SearchBar value={search} onChange={onSearchChange}/>
                     </div>
-                    <div className="createHospitalViewContainer">
-                        <CreateHospitalView search={search}/>
+                    <div className="CreateEntityViewContainer">
+                        <CreateEntityView search={search}/>
                     </div>
                 </div>
             </div>
