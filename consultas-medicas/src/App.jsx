@@ -19,7 +19,7 @@ import EmloyeeView from './components/EmployeeView/EmloyeeView'
 import AdminView from './components/AdminView/AdminView'
 import View from './components/view/View'
 import SearchBar from './components/searchBar/SearchBar'
-
+import CreateHospitalView from './components/EntityView/hospitalsView/CreateHospitalView'
 
 function App() {
     return (

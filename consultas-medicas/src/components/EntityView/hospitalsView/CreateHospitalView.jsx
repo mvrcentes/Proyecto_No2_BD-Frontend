@@ -9,7 +9,7 @@ const CreateHospital = ({ search }) => {
     const [entities, setEntities] = useState([]);
 
     const fetchData = async () => {
-        const res = await axios.get("http://10.100.13.215:4000/api/hospitales")
+        const res = await axios.get("http://192.168.1.6:4000/api/hospitales")
         setEntities(res.data)
     }
 
