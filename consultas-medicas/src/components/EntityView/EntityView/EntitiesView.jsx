@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Navigation from "../../navigation/Navigation";
-import CreateHospitalView from "./CreateHospitalView";
+import CreateHospitalView from "./CreateEntityView";
 
 import "./HospitalsView.css";
 
