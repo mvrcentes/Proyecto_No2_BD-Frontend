@@ -1,6 +1,6 @@
-import "./HospitalCard.css";
+import "./entityCard.css";
 
-const HospitalCard = ({ nombre, direccion, telefono, mail, website, tipo }) => {
+const EntityCard = ({ nombre, direccion, telefono, mail, website, tipo }) => {
 
     tipo = tipo.toLowerCase()
      
@@ -51,4 +51,4 @@ const HospitalCard = ({ nombre, direccion, telefono, mail, website, tipo }) => {
     );
 };
 
-export default HospitalCard;
+export default EntityCard;

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import Navigation from "../../navigation/Navigation";
-import CreateHospitalView from "./CreateEntityView";
+import CreateEntityView from "./CreateEntityView";
 
-import "./HospitalsView.css";
+import "./EntitiesView.css";
 
 const HospitalsView = () => {
     return (
@@ -14,7 +14,7 @@ const HospitalsView = () => {
                 <h1>+</h1>
             </Link>
             <div >
-                <CreateHospitalView/>
+                <CreateEntityView/>
             </div>
         </div>
     );
