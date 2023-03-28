@@ -14,9 +14,9 @@ import menu_entidad from "../../assets/menu-entidad.svg"
 import signOut from "../../assets/SignOut.svg"
 
 //style
-import "./adminView.css"
+import "./adminViewEntities.css"
 
-const AdminView = () => {
+const AdminViewEntities = () => {
     const [search, setSearch] = useState("")
     
     const menuOptions = [
@@ -51,4 +51,4 @@ const AdminView = () => {
     )
 }
 
-export default AdminView
+export default AdminViewEntities

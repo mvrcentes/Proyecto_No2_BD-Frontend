@@ -16,7 +16,7 @@ import InformationCard from './components/EmployeeView/informationCard/Informati
 import CardFormPatient from './components/EmployeeView/cardFormPatient/CardFormPatient'
 import EmloyeeView from './components/EmployeeView/EmloyeeView'
 
-import AdminView from './components/AdminView/AdminView'
+import AdminViewEntities from './components/AdminView/AdminViewEntities'
 import View from './components/view/View'
 import SearchBar from './components/searchBar/SearchBar'
 import CreateHospitalView from './components/EntityView/hospitalsView/CreateHospitalView'
@@ -35,7 +35,7 @@ function App() {
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
 
-                <Route path="/card" element={ <AdminView />} ></Route>
+                <Route path="/card" element={ <AdminViewEntities />} ></Route>
             </Routes>
         </div>
     )
