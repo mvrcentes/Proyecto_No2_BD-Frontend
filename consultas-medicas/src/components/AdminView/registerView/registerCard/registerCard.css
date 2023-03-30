@@ -1,4 +1,36 @@
 .registerCard {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     min-height: 50px;
+    border-bottom: 0.1px solid #6d6d6d59;
+}
+
+.fila {
+    display: flex;
+    flex-direction: row;
+    margin-left: 25px;
+    gap: 25px;
+}
+
+/* .entityNameDropdown {
+    width: 100px;
+}
+
+.entityNameButton {
+    width: 100px;
+} */
+
+.nameLastName {
+    align-self: center;
+    min-width: 100px;
+}
+
+.entityName {
+    align-self: center;
+    min-width: 100px;
+}
+
+.entityAddress {
+    align-self: center;
+    min-width: 100px;
 }
