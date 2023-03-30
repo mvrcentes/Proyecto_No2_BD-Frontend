@@ -1,29 +1,37 @@
-import { Component } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-import RegisterCard from "../registerCard/RegisterCard"
+import RegisterCard from "../registerCard/RegisterCard";
 
-import "./CreateRegisterView.css"
+import "./CreateRegisterView.css";
 
-export default class CreateRegisterView extends Component  {
-    state = {
-        registers: []
-    }
+const CreateRegisterView = () => {
+    const [registers, setRegisters] = useState([]);
 
-    async componentDidMount() {
-        //cambiar la ip por la del servidor
-        const res = await axios.get("http://192.168.1.6:4000/api/hospitales")
+    const fetchData = async () => {
+        // const res = await axios.get("http://10.100.6.212:4000/api/hospitales");
+        // const res = await axios.get("http://172.20.10.2:4000/api/hospitales");
+        const res = await axios.get("http://192.168.1.6:4000/api/hospitales");
+        setRegisters(res.data);
+    };
 
-        this.setState({ registers: res.data })
-    }
+    useEffect(() => {
+        fetchData();
+    }, [registers]);
 
-    render() {
-        return (
+    return (
         <div className="createRegisterCard">
             {/* {this.state.registers.map(register => <RegisterCard key={register.id} fecha={register.fecha} nombreDoctor={register.nombreDoctor} nombreHospital={register.nombreHospital} /> )} */}
-            {this.state.registers.map(register => <RegisterCard key={register.id} fecha={register.created_at} nombreDoctor={register.nombre} nombreHospital={register.direccion} /> )}
+            {registers.map((register) => (
+                <RegisterCard
+                    key={register.id}
+                    fecha={register.created_at}
+                    nombreDoctor={register.nombre}
+                    nombreHospital={register.direccion}
+                />
+            ))}
         </div>
-        )
-    }
-}
+    );
+};
 
+export default CreateRegisterView;
