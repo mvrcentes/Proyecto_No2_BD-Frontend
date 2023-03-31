@@ -6,6 +6,7 @@ import View from "../../components/view/View";
 //components
 import SearchBar from "../../components/searchBar/SearchBar";
 import CreateDoctorRegisterView from "../../components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView";
+import menuOptions from "../../components/AdminView/menuOptions";
 
 //icons
 import menu_doctor from "../../assets/menu-doctor.svg";
@@ -17,12 +18,6 @@ import "./AdminViewDoctors.css";
 
 const AdminViewDoctors = () => {
     const [search, setSearch] = useState("");
-
-    const menuOptions = [
-        [menu_doctor, "doctores"],
-        [menu_entidad, "entidades"],
-        [signOut, "salir"],
-    ];
 
     const onSearchChange = (e) => {
         setSearch(e.target.value);
