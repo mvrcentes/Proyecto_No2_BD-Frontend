@@ -11,8 +11,8 @@ import Login from './pages/Login/Login'
 // import CreateUser from './components/CreateUser'
 import HospitalsView from './components/EntityView/EntityView/EntitiesView'
 
-import AdminViewEntities from './components/AdminView/adminViewEntities/AdminViewEntities'
-import AdminViewDoctors from './components/AdminView/adminViewDoctors/AdminViewDoctors'
+import AdminViewEntities from './pages/adminViewEntities/AdminViewEntities'
+import AdminViewDoctors from './pages/adminViewDoctors/AdminViewDoctors'
 import CreateRegisterView from './components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView'
 import RegisterCard from './components/AdminView/DoctorRegisterView/registerCard/RegisterCard'
 
@@ -32,8 +32,9 @@ function App() {
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
 
-                <Route path="/card" element={ <AdminViewDoctors />} ></Route>
-                <Route path="/tmp" element={ <SearchDropDown />} ></Route>
+                {/* Routes for Admin */}
+                <Route path="/adminviewentities" element={ <AdminViewEntities />} ></Route>
+                <Route path="/adminviewdoctors" element={ <AdminViewDoctors />} ></Route>
             </Routes>
         </div>
     )
