@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 //view
-import View from "../../view/View";
+import View from "../../components/view/View";
 
 //components
-import SearchBar from "../../searchBar/SearchBar";
-import CreateDoctorRegisterView from "../DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView";
+import SearchBar from "../../components/searchBar/SearchBar";
+import CreateDoctorRegisterView from "../../components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView";
 
 //icons
-import menu_doctor from "../../../assets/menu-doctor.svg";
-import menu_entidad from "../../../assets/menu-entidad.svg";
-import signOut from "../../../assets/SignOut.svg";
+import menu_doctor from "../../assets/menu-doctor.svg";
+import menu_entidad from "../../assets/menu-entidad.svg";
+import signOut from "../../assets/SignOut.svg";
 
 //style
 import "./AdminViewDoctors.css";
