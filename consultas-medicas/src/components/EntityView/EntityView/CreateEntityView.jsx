@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+//components
 import HospitalCard from "../entityCard/EntityCard";
 
+//style
 import "./CreateEntityView.css";
 
+//data
+import registers from "../../fetchData/FetchData";
+
 const CreateHospital = ({ search }) => {
-    const [entities, setEntities] = useState([]);
-
-    const fetchData = async () => {
-        const res = await axios.get("http://192.168.1.6:4000/api/hospitales")
-        setEntities(res.data)
-    }
-
-    useEffect(() => {
-        fetchData()
-    }, [entities]);
-
     const filteredEntities = search
-        ? entities.filter((hospital) =>
+        ? registers.filter((hospital) =>
               hospital.nombre.toLowerCase().includes(search.toLowerCase())
           )
-        : entities;
+        : registers;
 
     return (
         <div className="hospitals-container">
