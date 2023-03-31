@@ -9,17 +9,14 @@ import RegisterView from './components/results/registerView/RegisterView'
 import Login from './pages/Login/Login'
 
 // import CreateUser from './components/CreateUser'
-import HospitalsView from './components/EntityView/hospitalsView/HospitalsView'
+import HospitalsView from './components/EntityView/EntityView/EntitiesView'
 
+import AdminViewEntities from './components/AdminView/adminViewEntities/AdminViewEntities'
+import AdminViewDoctors from './components/AdminView/adminViewDoctors/AdminViewDoctors'
+import CreateRegisterView from './components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView'
+import RegisterCard from './components/AdminView/DoctorRegisterView/registerCard/RegisterCard'
 
-import InformationCard from './components/EmployeeView/informationCard/InformationCard'
-import CardFormPatient from './components/EmployeeView/cardFormPatient/CardFormPatient'
-import EmloyeeView from './components/EmployeeView/EmloyeeView'
-
-import AdminViewEntities from './components/AdminView/AdminViewEntities'
-import View from './components/view/View'
-import SearchBar from './components/searchBar/SearchBar'
-import CreateHospitalView from './components/EntityView/hospitalsView/CreateHospitalView'
+import SearchDropDown from './components/AdminView/DoctorRegisterView/registerCard/SearchDropDown/SearchDropDown'
 
 function App() {
     return (
@@ -35,7 +32,8 @@ function App() {
 
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
 
-                <Route path="/card" element={ <AdminViewEntities />} ></Route>
+                <Route path="/card" element={ <AdminViewDoctors />} ></Route>
+                <Route path="/tmp" element={ <SearchDropDown />} ></Route>
             </Routes>
         </div>
     )

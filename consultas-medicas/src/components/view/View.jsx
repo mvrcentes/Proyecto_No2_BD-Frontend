@@ -32,7 +32,7 @@ function View({menuOptions, tipo, children}) {
                     <Link to="/">
                         <h1>Logo</h1>
                     </Link>
-                    {menuOptions.map((opcion) => (<ButtonMenu icon={opcion[0]} text={opcion[1]} />))}
+                    {menuOptions.map((opcion, index) => (<ButtonMenu key={index} icon={opcion[0]} text={opcion[1]} />))}
                 </div>
             </div>
             <div className="rightSide">

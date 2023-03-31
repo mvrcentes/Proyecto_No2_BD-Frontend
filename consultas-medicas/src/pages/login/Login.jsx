@@ -27,11 +27,6 @@ const Login = () => {
                 <div className="form-container sign-up-container">
                     <form action="#">
                         <h1 className='black-text'>Create Account</h1>
-                        {/* <div className="social-container">
-                            <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
-                        </div> */}
                         <span>or use your email for registration</span>
                         <input type="text" placeholder="Name" />
                         <input type="email" placeholder="Email" />
@@ -44,12 +39,6 @@ const Login = () => {
                 <div className="form-container sign-in-container">
                     <form action="#" onSubmit={handleSubmit}>
                         <h1 className='black-text'>Sign in</h1>
-                        {/* <div className="social-container">
-                            <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                            <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
-                        </div>
-                        <span>or use your account</span> */}
                         <input type="email" placeholder="Email" onChange={(email) => setEmail(email.target.value)}/>
                         <input type="password" placeholder="Password" />
                         <a href="#">Forgot your password?</a>

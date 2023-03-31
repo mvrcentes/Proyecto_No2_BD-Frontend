@@ -6,7 +6,6 @@ import View from "../../view/View";
 //components
 import SearchBar from "../../searchBar/SearchBar";
 import CreateDoctorRegisterView from "../DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView";
-import SearchDropDown from "../DoctorRegisterView/registerCard/SearchDropDown/SearchDropDown";
 
 //icons
 import menu_doctor from "../../../assets/menu-doctor.svg";
@@ -34,10 +33,10 @@ const AdminViewDoctors = () => {
         <View menuOptions={menuOptions} key={0}>
             <div className="viewContainer">
                 <div className="searchBarContainer">
-                    <SearchBar />
+                    <SearchBar value={search} onChange={onSearchChange}/>
                 </div>
                 <div className="doctorsContainer">
-                    <CreateDoctorRegisterView search={""}/>
+                    <CreateDoctorRegisterView search={search}/>
                 </div>
             </div>
         </View>

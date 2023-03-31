@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
-import axios from 'axios'
+
+//data 
+import registers from "../../../../fetchData/FetchData";
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div
@@ -39,7 +41,10 @@ const CustomMenu = React.forwardRef(
                     {React.Children.toArray(children).filter(
                         (child) =>
                             !value ||
-                            child.props.children.toString().toLowerCase().startsWith(value.toLowerCase())
+                            child.props.children
+                                .toString()
+                                .toLowerCase()
+                                .startsWith(value.toLowerCase())
                     )}
                 </ul>
             </div>
@@ -47,37 +52,27 @@ const CustomMenu = React.forwardRef(
     }
 );
 
-const SearchDropDown = ({register, onSelect}) => {
-    const [registers, setRegisters] = useState([]);
-    const [selectedOption, setSelectedOption] = useState('')
-
-    const fetchData = async () => {
-        // const res = await axios.get("http://10.100.6.212:4000/api/hospitales");
-        // const res = await axios.get("http://172.20.10.2:4000/api/hospitales");
-        const res = await axios.get("http://192.168.1.6:4000/api/hospitales");
-        setRegisters(res.data);
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, [registers]);
-
-    const onClickSelectOption = (e) => {
-        console.log(e)
-        setSelectedOption(e)
-    }
+const SearchDropDown = ({ register, onSelect }) => {
+    const [selectedItem, setSelectedItem] = useState(register);
 
     return (
-        <Dropdown onSelect={onClickSelectOption}>
+        <Dropdown  onSelect={(eventKey) => {
+            onSelect(eventKey);
+            setSelectedItem(eventKey);
+          }}>
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-            {selectedOption || register}
+                {selectedItem}
             </Dropdown.Toggle>
 
             <Dropdown.Menu as={CustomMenu}>
-                {registers.map((register, index) =>  (<Dropdown.Item key={index} eventKey={register.direccion}>{register.direccion}</Dropdown.Item>))}
+                {registers.map((r, index) => (
+                    <Dropdown.Item key={index} eventKey={r.direccion}>
+                        {r.direccion}
+                    </Dropdown.Item>
+                ))}
             </Dropdown.Menu>
         </Dropdown>
-    )
+    );
 };
 
-export default SearchDropDown
+export default SearchDropDown;

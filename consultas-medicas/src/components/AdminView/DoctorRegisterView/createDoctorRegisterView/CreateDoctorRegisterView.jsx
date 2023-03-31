@@ -1,39 +1,36 @@
-// import dotenv from 'dotenv'
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-
-// dotenv.config()
-
 //style
 import "./CreateDoctorRegisterView.css";
 
 //components
 import RegisterCard from "../registerCard/RegisterCard";
 
-const CreateDoctorRegisterView = ({ search }) => {
-    const [registers, setRegisters] = useState([]);
+//data
+import doctors from "../../../fetchData/FetchData";
 
-    const fetchData = async () => {
-        // const res = await axios.get("http://10.100.6.212:4000/api/hospitales");
-        // const res = await axios.get("http://172.20.10.2:4000/api/hospitales");
-        const res = await axios.get("http://192.168.1.6:4000/api/hospitales");
-        setRegisters(res.data);
+const CreateDoctorRegisterView = ({ search }) => {
+    const handleEntityChange = (registerIndex, newEntity) => {
+        const newRegisters = [...doctors];
+        newRegisters[registerIndex].direccion = newEntity;
+        console.log(newEntity);
     };
 
-    useEffect(() => {
-        fetchData();
-    }, [registers]);
-
-    const filteredRegisters = search
-        ? entities.filter((hospital) =>
-              hospital.nombre.toLowerCase().includes(search.toLowerCase())
+    const filteredDoctors = search
+        ? doctors.filter((person) =>
+              person.nombre.toLowerCase().includes(search.toLowerCase())
           )
-        : registers;
+        : doctors;
 
     return (
         <div className="CreateRegisterView">
-            {filteredRegisters.map((register) => (
-                <RegisterCard key={register.id} nameLastName={register.nombre} entityName={register.nombre}  entityAddress={register.direccion}/>
+            {filteredDoctors.map((doctor, index) => (
+                <RegisterCard
+                    key={index}
+                    nameLastName={doctor.nombre}
+                    entityName={doctor.nombre}
+                    entityAddress={doctor.direccion}
+                    onChange={handleEntityChange}
+                    index={index}
+                />
             ))}
         </div>
     );

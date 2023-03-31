@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-import axios from "axios";
-
 //icon
 import search_icon from "../../assets/search_icon.svg";
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 //style
 import "./RegisterCard.css";
@@ -6,31 +6,39 @@ import "./RegisterCard.css";
 //components
 import SearchDropDown from "./SearchDropDown/SearchDropDown";
 
-const RegisterCard = ({ nameLastName, entityName, entityAddress }) => {
-    const [inicialEntity, setInicialEntity] = useState("");
+const RegisterCard = ({
+    nameLastName,
+    entityName,
+    entityAddress,
+    onChange,
+    index,
+}) => {
     const [availableUpdate, setAvailableUpdate] = useState(false);
-    const [selectedEntity, setSelectedEntity] = useState(entityName);
 
-    useEffect(() => {
-        const isAvailable = selectedEntity !== inicialEntity;
-        setAvailableUpdate(isAvailable);
-        setInicialEntity(entityName);
-    }, [inicialEntity, selectedEntity]);
+    const onClick = () => {
+        console.log("aqui tiene que ir el put")
+        setAvailableUpdate(false)
+    }
 
     return (
         <div className="registerCard">
             <div className="fila">
                 <div className="nameLastName">{nameLastName}</div>
                 {/* <div className="entityName">{entityName}</div> */}
-                <SearchDropDown className="entityName" register={entityName} onSelect={(value) => setSelectedEntity(value)}/>
+                <SearchDropDown
+                    className="entityName"
+                    register={entityName}
+                    onSelect={() => {
+                        console.log('onselect')
+                        onChange(index);
+                        setAvailableUpdate(true);
+                    }}
+                />
                 <div className="entityAddress">{entityAddress}</div>
             </div>
-            <button
-                className="updateRegister"
-                style={{ display: availableUpdate ? "block" : "none" }}
-            >
-                actualizar
-            </button>
+            {availableUpdate && (
+                <button className="updateRegister" onClick={onClick}>actualizar</button>
+            )}
         </div>
     );
 };

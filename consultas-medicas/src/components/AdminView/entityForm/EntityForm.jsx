@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import "./entityForm.css";
 
 import axios from "axios";
-import { Component } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 
 const EntityForm = () => {
