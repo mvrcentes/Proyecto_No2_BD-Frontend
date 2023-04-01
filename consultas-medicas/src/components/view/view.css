@@ -70,8 +70,15 @@
     align-items: flex-start;
     height: 100%;
     width: 100%;
-    padding: 70px 50px 30px 50px;
     gap: 25px;
+}
+
+.fondoContainer.normal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
 }
 
 .fondoContainer.row {
