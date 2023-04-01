@@ -1,0 +1,9 @@
+.EntitiesPageContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.CreateEntityViewContainer {
+    padding-bottom: 100px;
+}
