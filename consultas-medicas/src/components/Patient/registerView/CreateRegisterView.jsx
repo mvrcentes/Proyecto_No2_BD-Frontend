@@ -7,10 +7,16 @@ import "./CreateRegisterView.css";
 //data
 import registers from "../../fetchData/FetchData";
 
-const CreateRegisterView = () => {
+const CreateRegisterView = ({search}) => {
+    const filteredEntities = search
+    ? registers.filter((hospital) =>
+          hospital.nombre.toLowerCase().includes(search.toLowerCase())
+      )
+    : registers;
+
     return (
         <div className="createRegisterCard">
-            {registers.map((register) => (
+            {filteredEntities.map((register) => (
                 <RegisterCard
                     key={register.id}
                     fecha={register.created_at}
