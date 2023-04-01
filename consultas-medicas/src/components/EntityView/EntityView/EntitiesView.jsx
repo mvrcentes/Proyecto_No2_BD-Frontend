@@ -1,3 +1,5 @@
+//creo que ya no se usara
+
 import Navigation from "../../navigation/Navigation";
 import CreateEntityView from "./CreateEntityView";
 

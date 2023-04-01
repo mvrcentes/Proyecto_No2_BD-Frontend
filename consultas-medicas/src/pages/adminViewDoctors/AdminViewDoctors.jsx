@@ -6,7 +6,7 @@ import View from "../../components/view/View";
 //components
 import SearchBar from "../../components/searchBar/SearchBar";
 import CreateDoctorRegisterView from "../../components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView";
-import menuOptions from "../../components/AdminView/menuOptions";
+import menuOptions from "../../components/AdminView/MenuOptions";
 
 //icons
 import menu_doctor from "../../assets/menu-doctor.svg";

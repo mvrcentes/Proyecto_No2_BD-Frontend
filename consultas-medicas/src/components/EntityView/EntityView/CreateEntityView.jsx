@@ -7,7 +7,7 @@ import "./CreateEntityView.css";
 //data
 import registers from "../../fetchData/FetchData";
 
-const CreateHospital = ({ search }) => {
+const CreateEntityView = ({ search }) => {
     const filteredEntities = search
         ? registers.filter((hospital) =>
               hospital.nombre.toLowerCase().includes(search.toLowerCase())
@@ -31,4 +31,4 @@ const CreateHospital = ({ search }) => {
     );
 };
 
-export default CreateHospital;
+export default CreateEntityView;
