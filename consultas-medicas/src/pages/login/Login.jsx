@@ -1,13 +1,11 @@
-import './style.css';
-import React, { useState } from 'react';
-// import { client } from '../../supabase/client';
+import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
+import "./style.css";
 
 const Login = () => {
-    const [active, setActive] = useState(false);
-    const containerClass = `container ${active ? 'right-panel-active' : ''}`;
-
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleClick = () => {
         setActive(!active);
@@ -15,58 +13,139 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // supabase.auth.signInWithOtp({email: 'example@email.com'})
-
         console.log(email);
-    }
+    };
 
     return (
-        <div className='login'>
-            <div className={containerClass} id="container">
+        <div className="login">
+            <div className="row full-height justify-content-center">
+                <div className="col-12 text-center align-self-center py-5">
+                    <div className="section pb-5 pt-5 pt-sm-2 text-center">
+                        <h6 className="mb-0 pb-3">
+                            <span>Iniciar sesión</span>
+                            <span>Registrarse</span>
+                        </h6>
+                        <input
+                            className="checkbox"
+                            type="checkbox"
+                            id="reg-log"
+                            name="reg-log"
+                        />
+                        <label htmlFor="reg-log"></label>
+                        <div className="card-3d-wrap mx-auto">
+                            <div className="card-3d-wrapper">
+                                <div className="card-front">
+                                    <div className="center-wrap">
+                                        <div className="section text-center">
+                                            <h4 className="mb-4 pb-3">
+                                                Log In
+                                            </h4>
+                                            <div className="form-group">
+                                                <input
+                                                    type="email"
+                                                    name="email"
+                                                    className="form-style"
+                                                    placeholder="Your Email"
+                                                    id="logemail"
+                                                    autoComplete="off"
+                                                    onChange={(event) =>
+                                                        setEmail(
+                                                            event.target.value
+                                                        )
+                                                    }
+                                                />
+                                                <i className="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div className="form-group mt-2">
+                                                <input
+                                                    type="password"
+                                                    name="logpass"
+                                                    className="form-style"
+                                                    placeholder="Your Password"
+                                                    id="logpass"
+                                                    autoComplete="off"
+                                                    onChange={(event) =>
+                                                        setPassword(
+                                                            event.target.value
+                                                        )
+                                                    }
+                                                />
+                                                <i className="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <a href="#" className="btn mt-4">
+                                                submit
+                                            </a>
+                                            <p className="mb-0 mt-4 text-center">
+                                                <a href="#0" className="link">
+                                                    Forgot your password?
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <div className="form-container sign-up-container">
-                    <form action="#">
-                        <h1 className='black-text'>Create Account</h1>
-                        <span>or use your email for registration</span>
-                        <input type="text" placeholder="Name" />
-                        <input type="email" placeholder="Email" />
-                        <input type="password" placeholder="Password" />
-                        <button className='normal'>Signnn Up</button>
-                    </form>
-                </div>
-
-
-                <div className="form-container sign-in-container">
-                    <form action="#" onSubmit={handleSubmit}>
-                        <h1 className='black-text'>Sign in</h1>
-                        <input type="email" placeholder="Email" onChange={(email) => setEmail(email.target.value)}/>
-                        <input type="password" placeholder="Password" />
-                        <a href="#">Forgot your password?</a>
-                        <button className='normal'>Iniciar sesion</button>
-                    </form>
-                </div>
-
-
-                <div className="overlay-container">
-                    <div className="overlay">
-                        <div className="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>To keep connected with us please login with your personal info</p>
-                            <button onClick={handleClick} className="ghost" id="signIn">Sign Iiiin</button>
-                        </div>
-                        <div className="overlay-panel overlay-right">
-                            <h1>Hello, Friend!</h1>
-                            <p>Enter your personal details and start journey with us</p>
-                            <button onClick={handleClick} className="ghost" id="signUp">Sign Upp</button>
+                                <div className="card-back">
+                                    <div className="center-wrap">
+                                        <div className="section text-center">
+                                            <h4 className="mb-4 pb-3">
+                                                Sign Up
+                                            </h4>
+                                            <div className="form-group">
+                                                <input
+                                                    type="text"
+                                                    name="logname"
+                                                    className="form-style"
+                                                    placeholder="Your Full Name"
+                                                    id="logname"
+                                                    autoComplete="off"
+                                                />
+                                                <i className="input-icon uil uil-user"></i>
+                                            </div>
+                                            <div className="form-group mt-2">
+                                                <input
+                                                    type="email"
+                                                    name="logemail"
+                                                    className="form-style"
+                                                    placeholder="Your Email"
+                                                    id="logemail"
+                                                    autoComplete="off"
+                                                    onChange={(event) =>
+                                                        setEmail(
+                                                            event.target.value
+                                                        )
+                                                    }
+                                                />
+                                                <i className="input-icon uil uil-at"></i>
+                                            </div>
+                                            <div className="form-group mt-2">
+                                                <input
+                                                    type="password"
+                                                    name="logpass"
+                                                    className="form-style"
+                                                    placeholder="Your Password"
+                                                    id="logpass"
+                                                    autoComplete="off"
+                                                    onChange={(event) =>
+                                                        setPassword(
+                                                            event.target.value
+                                                        )
+                                                    }
+                                                />
+                                                <i className="input-icon uil uil-lock-alt"></i>
+                                            </div>
+                                            <a href="#" className="btn mt-4">
+                                                submit
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-            <script src="main.js"></script>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;
