@@ -1,20 +1,23 @@
-import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import axios from "axios";
 
-import "./style.css";
+import "./style.css"
+
+// import Auth from "../../components/fetchData/Auth";
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-    const handleClick = () => {
-        setActive(!active);
-    };
-
-    const handleSubmit = (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
-        console.log(email);
-    };
+        const res = await axios.post("http://localhost:4000/api/signup/signup", {
+            email,
+            password
+        });
+        console.log("first")
+    }
 
     return (
         <div className="login">
@@ -40,41 +43,49 @@ const Login = () => {
                                             <h4 className="mb-4 pb-3">
                                                 Log In
                                             </h4>
-                                            <div className="form-group">
-                                                <input
-                                                    type="email"
-                                                    name="email"
-                                                    className="form-style"
-                                                    placeholder="Your Email"
-                                                    id="logemail"
-                                                    autoComplete="off"
-                                                    onChange={(event) =>
-                                                        setEmail(
-                                                            event.target.value
-                                                        )
-                                                    }
-                                                />
-                                                <i className="input-icon uil uil-at"></i>
-                                            </div>
-                                            <div className="form-group mt-2">
-                                                <input
-                                                    type="password"
-                                                    name="logpass"
-                                                    className="form-style"
-                                                    placeholder="Your Password"
-                                                    id="logpass"
-                                                    autoComplete="off"
-                                                    onChange={(event) =>
-                                                        setPassword(
-                                                            event.target.value
-                                                        )
-                                                    }
-                                                />
-                                                <i className="input-icon uil uil-lock-alt"></i>
-                                            </div>
-                                            <a href="#" className="btn mt-4">
-                                                submit
-                                            </a>
+                                            <form onSubmit={onSubmit}>
+                                                <div className="form-group">
+                                                    <input
+                                                        type="email"
+                                                        name="email"
+                                                        className="form-style"
+                                                        placeholder="Your Email"
+                                                        id="logemail"
+                                                        autoComplete="off"
+                                                        onChange={(event) =>
+                                                            setEmail(
+                                                                event.target
+                                                                    .value
+                                                            )
+                                                        }
+                                                    />
+                                                    <i className="input-icon uil uil-at"></i>
+                                                </div>
+                                                <div className="form-group mt-2">
+                                                    <input
+                                                        type="password"
+                                                        name="logpass"
+                                                        className="form-style"
+                                                        placeholder="Your Password"
+                                                        id="logpass"
+                                                        autoComplete="off"
+                                                        onChange={(event) =>
+                                                            setPassword(
+                                                                event.target
+                                                                    .value
+                                                            )
+                                                        }
+                                                    />
+                                                    <i className="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <button
+                                                    type="submit"
+                                                    className="btn mt-4"
+                                                >
+                                                    submitt
+                                                </button>
+                                            </form>
+
                                             <p className="mb-0 mt-4 text-center">
                                                 <a href="#0" className="link">
                                                     Forgot your password?
@@ -145,7 +156,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default Login;
+export default Login
