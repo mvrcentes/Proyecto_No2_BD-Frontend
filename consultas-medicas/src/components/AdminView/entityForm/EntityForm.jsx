@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState } from "react"
 
-import "./entityForm.css";
+import "./entityForm.css"
 
-import axios from "axios";
-import Dropdown from "react-bootstrap/Dropdown";
+import axios from "axios"
+import Dropdown from "react-bootstrap/Dropdown"
 
 const EntityForm = () => {
     const [info, setInfo] = useState({
@@ -13,24 +13,24 @@ const EntityForm = () => {
         website: "",
         email: "",
         type: "",
-    });
+    })
 
     const onChange = ({ target: { name, value } }) =>
-        setInfo({ ...info, [name]: value });
+        setInfo({ ...info, [name]: value })
 
     const onChangeType = (selectedItem) =>
-        setInfo({ ...info, type: selectedItem });
+        setInfo({ ...info, type: selectedItem })
 
     const validateType = () => {
-        return info.type === "" ? true : false;
-    };
+        return info.type === "" ? true : false
+    }
 
     const validateForm = () => {
-        return Object.values(info).every((val) => val !== "") ? false : true;
-    };
+        return Object.values(info).every((val) => val !== "") ? false : true
+    }
 
     const onSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const res = await axios.post("http://localhost:4000/api/hospitales", {
             name: info.name,
             address: info.address,
@@ -38,9 +38,8 @@ const EntityForm = () => {
             website: info.website,
             email: info.email,
             type: info.type,
-        });
+        })
 
-        
         setInfo({
             name: "",
             address: "",
@@ -48,17 +47,16 @@ const EntityForm = () => {
             website: "",
             email: "",
             type: "",
-        });
+        })
 
-        e.preventDefault();
-    };
+        e.preventDefault()
+    }
 
     return (
         <div className="entityForm">
             <div className="containerEntityForm">
-                <h1 className="title">Registrar entidad</h1>
-
                 <form className="container-entity-form" onSubmit={onSubmit}>
+                    <h1 className="title">Registrar entidad</h1>
                     <div className="body-form">
                         <div className="form-information">
                             <h6>Nombre</h6>
@@ -159,7 +157,7 @@ const EntityForm = () => {
                 </form>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default EntityForm;
+export default EntityForm

@@ -30,7 +30,7 @@ function App() {
                 {/* main routes */}
                 <Route path="/" element={<Menu />}></Route>
                 <Route path="/login" element={ <Login /> }></Route>
-                <Route path="/hospitals" element={ <HospitalsView /> }></Route>
+                <Route path="/entities" element={ <HospitalsView /> }></Route>
                 {/* <Route path="/hospitalForm" element={ <EntityForm /> }></Route> */}
                 {/* <Route path="/user" element={ <CreateUser />} ></Route> */}
 

@@ -1,5 +1,8 @@
 .entityFormContainer {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    padding: 70px;
+    height: 100%;
 }
 
 .RightSideComponent {
@@ -14,6 +17,7 @@
 }
 
 .rightSideContainer {
+    height: 100%;
     margin: 30px
 }
 
@@ -25,5 +29,5 @@
 
 .CreateEntityViewContainer {
     height: 100%;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }

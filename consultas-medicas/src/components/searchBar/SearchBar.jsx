@@ -2,13 +2,13 @@
 import search_icon from "../../assets/search_icon.svg";
 
 //style
-import "./searchBar.css";
+import "./SearchBar.css";
 
 const SearchBar = ({value, onChange}) => {
     return (
         <div className="searchBar-input">
             <input
-                className="input-Seatchbar"
+                className="input-Searchbar"
                 type="text"
                 placeholder="Buscar"
                 value={value}

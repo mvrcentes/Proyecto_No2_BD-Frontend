@@ -1,12 +1,13 @@
-import axios from "axios";
+import axios from "axios"
 
-let registers = [];
+let server = "http://192.168.1.13:4000"
 
-// const fetchData = async () => {
-    const res = await axios.get("http://192.168.1.6:4000/api/hospitales");
-    registers = res.data;
-// };
+let FetchData = {}
 
-// fetchData();
+const entities = await axios.get(server + "/api/entities")
+FetchData.getEntities = entities.data
 
-export default registers;
+const treatments = await axios.get(server + "/api/treatment")
+FetchData.getTreatments = treatments.data
+
+export default FetchData

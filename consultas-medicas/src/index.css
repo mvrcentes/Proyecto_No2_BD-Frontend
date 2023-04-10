@@ -27,3 +27,8 @@ body{
 .root {
     height: 100%;
 }
+
+.input {
+    border: none;
+    width: 100%
+}
