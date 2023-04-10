@@ -5,14 +5,15 @@ import HospitalCard from "../entityCard/EntityCard";
 import "./CreateEntityView.css";
 
 //data
-import registers from "../../fetchData/FetchData";
+import FetchData from "../../fetchData/FetchData";
+const { getEntities } = FetchData
 
 const CreateEntityView = ({ search }) => {
     const filteredEntities = search
-        ? registers.filter((hospital) =>
+        ? getEntities.filter((hospital) =>
               hospital.nombre.toLowerCase().includes(search.toLowerCase())
           )
-        : registers;
+        : getEntities;
 
     return (
         <div className="hospitals-container">
