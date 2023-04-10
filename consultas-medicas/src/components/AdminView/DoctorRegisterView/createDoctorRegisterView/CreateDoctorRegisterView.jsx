@@ -1,24 +1,27 @@
 //style
-import "./CreateDoctorRegisterView.css";
+import "./CreateDoctorRegisterView.css"
 
 //components
-import RegisterCard from "../registerCard/RegisterCard";
+import RegisterCard from "../registerCard/RegisterCard"
 
 //data
-import doctors from "../../../fetchData/FetchData";
+import FetchData from "../../../fetchData/FetchData"
+const { getDoctors } = FetchData
 
 const CreateDoctorRegisterView = ({ search }) => {
     const handleEntityChange = (registerIndex, newEntity) => {
-        const newRegisters = [...doctors];
-        newRegisters[registerIndex].direccion = newEntity;
-        console.log(newEntity);
-    };
+        const newRegisters = [...getDoctors]
+        newRegisters[registerIndex].direccion = newEntity
+        console.log(newEntity)
+    }
+
+    console.log(getDoctors)
 
     const filteredDoctors = search
-        ? doctors.filter((person) =>
+        ? getDoctors.filter((person) =>
               person.nombre.toLowerCase().includes(search.toLowerCase())
           )
-        : doctors;
+        : getDoctors
 
     return (
         <div className="CreateRegisterView">
@@ -26,14 +29,14 @@ const CreateDoctorRegisterView = ({ search }) => {
                 <RegisterCard
                     key={index}
                     nameLastName={doctor.nombre}
-                    entityName={doctor.nombre}
+                    entityName={doctor.institucion}
                     entityAddress={doctor.direccion}
                     onChange={handleEntityChange}
                     index={index}
                 />
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default CreateDoctorRegisterView;
+export default CreateDoctorRegisterView

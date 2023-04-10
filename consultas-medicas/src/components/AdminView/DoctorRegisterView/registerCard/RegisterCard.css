@@ -22,15 +22,16 @@
 
 .nameLastName {
     align-self: center;
-    min-width: 100px;
+    min-width: 200px;
 }
 
-.entityName {
+.searchDropDown {
     align-self: center;
-    min-width: 100px;
+    min-width: 200px;
+    padding-right: 15px;
 }
 
 .entityAddress {
     align-self: center;
-    min-width: 100px;
+    min-width: 200px;
 }

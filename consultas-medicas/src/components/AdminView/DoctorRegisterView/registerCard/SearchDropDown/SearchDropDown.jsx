@@ -3,7 +3,8 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Form from "react-bootstrap/Form";
 
 //data 
-import registers from "../../../../fetchData/FetchData";
+import FetchData from "../../../../fetchData/FetchData";
+const { getEntities } = FetchData
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div
@@ -65,7 +66,7 @@ const SearchDropDown = ({ register, onSelect }) => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu as={CustomMenu}>
-                {registers.map((r, index) => (
+                {getEntities.map((r, index) => (
                     <Dropdown.Item key={index} eventKey={r.direccion}>
                         {r.direccion}
                     </Dropdown.Item>

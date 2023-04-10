@@ -10,4 +10,7 @@ FetchData.getEntities = entities.data
 const treatments = await axios.get(server + "/api/treatment")
 FetchData.getTreatments = treatments.data
 
+const doctors = await axios.get(server + "/api/usersEmployee")
+FetchData.getDoctors = doctors.data
+
 export default FetchData
