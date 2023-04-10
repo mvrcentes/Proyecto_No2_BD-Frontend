@@ -1,21 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
 //style
-import "./registerCard.css";
+import "./registerCard.css"
 
-const RegisterCard = ({ fecha, nombreDoctor, nombreHospital }) => {
-    fecha = fecha.slice(0, fecha.indexOf("T"));
+const RegisterCard = ({ date, doctorName, entityName }) => {
+    date = date.slice(0, date.indexOf("T"))
 
     return (
         <div className="register">
             <div className="registerContainer">
-                <div className="fecha">{fecha}</div>
-                <div className="nombreDoctor">{nombreDoctor}</div>
-                <div className="nombreHospital">{nombreHospital}</div>
-                <div className="ver"><Link to='/results/:id/moreinfo'>Visualizar</Link></div>
+                <div className="fecha">{date}</div>
+                <div className="nombreDoctor">{doctorName}</div>
+                <div className="nombreHospital">{entityName}</div>
+                <div className="ver">
+                    <Link to="/results/:id/moreinfo">Visualizar</Link>
+                </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default RegisterCard;
+export default RegisterCard

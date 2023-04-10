@@ -5,23 +5,26 @@ import RegisterCard from "../registerCard/RegisterCard";
 import "./CreateRegisterView.css";
 
 //data
-import registers from "../../fetchData/FetchData";
+import FetchData from "../../fetchData/FetchData";
+const { getTreatments } = FetchData
 
 const CreateRegisterView = ({search}) => {
-    const filteredEntities = search
-    ? registers.filter((hospital) =>
-          hospital.nombre.toLowerCase().includes(search.toLowerCase())
+    const filteredRegisters = search
+    ? getTreatments.filter((register) =>
+          register.medico.nombre.toLowerCase().includes(search.toLowerCase())
       )
-    : registers;
+    : getTreatments;
+
+    console.log(filteredRegisters)
 
     return (
         <div className="createRegisterCard">
-            {filteredEntities.map((register) => (
+            {filteredRegisters.map((register) => (
                 <RegisterCard
-                    key={register.id}
-                    fecha={register.created_at}
-                    nombreDoctor={register.nombre}
-                    nombreHospital={register.direccion}
+                    key={register.dpi_paciente}
+                    date={register.fecha}
+                    doctorName={register.medico.nombre}
+                    entityName={register.institucion.nombre}
                 />
             ))}
         </div>

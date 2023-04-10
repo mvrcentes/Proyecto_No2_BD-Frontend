@@ -23,8 +23,7 @@ const RegisterCard = ({
     return (
         <div className="registerCard">
             <div className="fila">
-                <div className="nameLastName">{nameLastName}</div>
-                {/* <div className="entityName">{entityName}</div> */}
+                <div className="nameLastName">{nameLastName}</div>            
                 <SearchDropDown
                     className="entityName"
                     register={entityName}
