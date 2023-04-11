@@ -1,0 +1,16 @@
+.QueryButton{
+    background-color: var(--main-color);
+    height: 60px;
+    width: 200px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+}
+
+.QueryButtonContainer {
+  display: wrap;
+  flex-wrap: wrap;
+  padding: 50px;
+  gap: 20px;
+}
+

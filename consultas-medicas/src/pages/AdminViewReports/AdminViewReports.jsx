@@ -5,18 +5,26 @@ import View from "../../components/view/View"
 import "./AdminViewReports.css"
 
 //sources
-import menuOptions from "../../components/AdminView/MenuOptions";
+import menuOptions from "../../components/AdminView/MenuOptions"
 
-const queryButton = () => {
-    <button>
-        Query 1 
-    </button>
+const QueryButton = () => {
+    return (
+        <button className="QueryButton">
+            <div>Query 1</div>
+        </button>
+    )
 }
 
-const AdminViewReports = () => { 
+const AdminViewReports = () => {
     return (
-        <View menuOptions={menuOptions}>
-
+        <View menuOptions={menuOptions} key={0}>
+            <div className="QueryButtonContainer">
+                <QueryButton />
+                <QueryButton />
+                <QueryButton />
+                <QueryButton />
+                <QueryButton />
+            </div>
         </View>
     )
 }
