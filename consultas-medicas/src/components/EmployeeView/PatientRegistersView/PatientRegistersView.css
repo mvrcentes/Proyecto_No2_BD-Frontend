@@ -1,0 +1,10 @@
+.PatientRegisterView {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.registersContainer {
+    border-radius: 15px;
+    overflow: hidden;
+}
