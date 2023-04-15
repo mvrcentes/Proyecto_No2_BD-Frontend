@@ -11,8 +11,9 @@ import Login from './pages/Login/Login'
 import HospitalsView from './components/EntityView/EntityView/EntitiesView'
 
 //admin views
-import AdminViewEntities from './pages/adminViewEntities/AdminViewEntities'
-import AdminViewDoctors from './pages/adminViewDoctors/AdminViewDoctors'
+import AdminViewEntities from './pages/AdminView/adminViewEntities/AdminViewEntities'
+import AdminViewDoctors from './pages/AdminView/adminViewDoctors/AdminViewDoctors'
+import AdminViewReports from './pages/AdminView/AdminViewReports/AdminViewReports'
 
 //employee views
 import EmloyeeView from './components/EmployeeView/EmloyeeView'
@@ -37,6 +38,7 @@ function App() {
                 {/* Routes for Admin */}
                 <Route path="/adminviewentities" element={ <AdminViewEntities />} ></Route>
                 <Route path="/adminviewdoctors" element={ <AdminViewDoctors />} ></Route>
+                <Route path="/adminviewreports" element={ <AdminViewReports />} ></Route>
 
                 {/* Routes for employee */}
                 <Route path="/employeeView" element={ <EmloyeeView />} ></Route>

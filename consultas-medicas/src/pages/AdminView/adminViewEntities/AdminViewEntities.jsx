@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
 //view
-import View from "../../components/view/View";
+import View from "../../../components/view/View";
 
 //components
-import EntityForm from "../../components/AdminView/entityForm/EntityForm";
-import CreateEntityView from "../../components/EntityView/EntityView/CreateEntityView";
-import SearchBar from "../../components/searchBar/SearchBar";
-import menuOptions from "../../components/AdminView/MenuOptions";
+import EntityForm from "../../../components/AdminView/entityForm/EntityForm";
+import CreateEntityView from "../../../components/EntityView/EntityView/CreateEntityView";
+import SearchBar from "../../../components/searchBar/SearchBar";
+import menuOptions from "../../../components/AdminView/MenuOptions";
 
 //style
 import "./AdminViewEntities.css";

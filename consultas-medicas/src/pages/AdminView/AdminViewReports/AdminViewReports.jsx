@@ -1,11 +1,11 @@
 //view
-import View from "../../components/view/View"
+import View from "../../../components/view/View"
 
 //css
 import "./AdminViewReports.css"
 
 //sources
-import menuOptions from "../../components/AdminView/MenuOptions"
+import menuOptions from "../../../components/AdminView/MenuOptions"
 
 const QueryButton = () => {
     return (

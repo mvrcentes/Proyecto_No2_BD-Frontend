@@ -1,6 +1,6 @@
 import axios from "axios"
 
-let server = "http://192.168.1.13:4000"
+const server = "http://192.168.1.13:4000"
 
 let FetchData = {}
 
