@@ -6,14 +6,14 @@ import "./CreateRegisterView.css";
 
 //data
 import FetchData from "../../fetchData/FetchData";
-const { getTreatments } = FetchData
+const { getIncidenceJoined } = FetchData
 
 const CreateRegisterView = ({search}) => {
     const filteredRegisters = search
-    ? getTreatments.filter((register) =>
+    ? getIncidenceJoined.filter((register) =>
           register.medico.nombre.toLowerCase().includes(search.toLowerCase())
       )
-    : getTreatments;
+    : getIncidenceJoined;
 
     console.log(filteredRegisters)
 
@@ -22,9 +22,7 @@ const CreateRegisterView = ({search}) => {
             {filteredRegisters.map((register) => (
                 <RegisterCard
                     key={register.dpi_paciente}
-                    date={register.fecha}
-                    doctorName={register.medico.nombre}
-                    entityName={register.institucion.nombre}
+                    data={register}
                 />
             ))}
         </div>

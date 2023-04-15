@@ -1,11 +1,6 @@
 .createRegisterCard {
-    align-self: center;
-    justify-self: center;
     background-color: var(--main-color);
-    height: auto;
     width: 100%; 
     overflow: hidden;
-    border-radius: 10px;
-    margin: 15px 85px 50px 85px;
 }
 
