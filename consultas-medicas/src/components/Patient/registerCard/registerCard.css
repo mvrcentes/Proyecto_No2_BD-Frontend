@@ -11,21 +11,29 @@
 
 .registerContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;        
     align-items: center;
     align-items: center;
     gap: 35px;
     margin-left: 15px;
 }
 
-.fecha{
-    width: 100px;
+.date{
+    min-width: 100px;
 }
 
-.nombreDoctor {
-    width: 200px;
+.doctorName {
+    min-width: 200px;
 }
 
-.nombreHospital {
+.specialist {
+    min-width: 100px;
+}
+
+.EntityName {
     min-width: 300px;
+}
+
+.disease {
+    min-width: 100px;
 }
