@@ -4,12 +4,14 @@
     background-color: var(--second-color);
     height: 60px;
     width: 200px;
+    gap: 15px;
     border-radius: 15px;
 }
 
 .buttonMenuContainer {
     display: flex;
     flex-direction: row;
+    gap: 15px;
     margin-left: 20px !important;
 }
 
