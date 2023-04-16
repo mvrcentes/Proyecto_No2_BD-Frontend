@@ -4,19 +4,18 @@ import { Link } from "react-router-dom"
 import "./registerCard.css"
 
 const RegisterCard = ({ data }) => {
-
-    console.log(data)
     return (
-        <div className="register">
-            <div className="registerContainer">
-                <div className="date">{data.fecha}</div>
-                <div className="doctorName">{data.doctor}</div>
-                <div className="specialist">{data.especialidad}</div>
-                <div className="EntityName">{data.institucion}</div>
-                <div className="disease">{data.enfermedad}</div>
-
+        <Link to={`/employeeViewPatients/${data.id}/moreinfo`} className="register-link">
+            <div className="register" >
+                <div className="registerContainer">
+                    <div className="date">{data.fecha}</div>
+                    <div className="doctorName">{data.doctor}</div>
+                    <div className="specialist">{data.especialidad}</div>
+                    <div className="EntityName">{data.institucion}</div>
+                    <div className="disease">{data.enfermedad}</div>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

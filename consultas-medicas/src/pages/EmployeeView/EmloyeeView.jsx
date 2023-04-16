@@ -1,6 +1,6 @@
 import View from "../../components/view/View"
 
-import CardFormPatient from "../../components/EmployeeView/cardFormPatient/CardFormPatient"
+import CardInfoPatient from "../../components/Patient/createInfoCardView/cardInfoPatient/CardInfoPatient"
 import InformationCard from "../../components/EmployeeView/informationCard/InformationCard"
 
 import menuOptions from "../../components/EmployeeView/Menu"
@@ -16,19 +16,19 @@ const EmloyeeView = () => {
 
     return (
         <View menuOptions={menuOptions}>
-            <CardFormPatient
+            <CardInfoPatient
                 title="Medicamentos"
                 options={options.medicamentos}
                 note={options}
                 type={false}
             />
 
-            <CardFormPatient
+            <CardInfoPatient
                 title="Laboratorios"
                 options={options.laboratorios}
                 type={false}
-            ></CardFormPatient>
-            <CardFormPatient title="Nota" note={options.nota} type={true} />
+            ></CardInfoPatient>
+            <CardInfoPatient title="Nota" note={options.nota} type={true} />
             <InformationCard />
         </View>
     )

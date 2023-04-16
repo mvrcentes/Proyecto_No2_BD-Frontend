@@ -1,0 +1,15 @@
+.fondo-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: var(--second-color);
+    gap: 15px;
+    height: 100%;
+
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
