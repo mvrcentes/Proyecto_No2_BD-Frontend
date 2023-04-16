@@ -5,7 +5,7 @@ import "./registerCard.css"
 
 const RegisterCard = ({ data }) => {
     return (
-        <Link to={`/employeeViewPatients/${data.id}/moreinfo`} className="register-link">
+        <Link to={`/employeeViewPatients/${data.dpi_paciente}/incidence/${data.incidencia_id}`} className="register-link">
             <div className="register" >
                 <div className="registerContainer">
                     <div className="date">{data.fecha}</div>

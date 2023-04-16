@@ -1,30 +1,42 @@
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+
 //components
-import RegisterCard from "../registerCard/RegisterCard";
+import RegisterCard from "../registerCard/RegisterCard"
 
 //style
-import "./CreateRegisterView.css";
+import "./CreateRegisterView.css"
 
-//data
-import FetchData from "../../fetchData/FetchData";
-const { getIncidenceJoined } = FetchData
+//getIncidenceJoined
+import { incidences } from "../../fetchData/FetchData"
 
-const CreateRegisterView = ({search}) => {
+const CreateRegisterView = ({ search }) => {
+    const { dpi } = useParams()
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const result = await incidences(dpi)
+            setData(result)
+        }
+        fetchData()
+    }, [dpi])
+
+    console.log("first", data)
+
     const filteredRegisters = search
-    ? getIncidenceJoined.filter((register) =>
-          register.doctor.toLowerCase().includes(search.toLowerCase())
-      )
-    : getIncidenceJoined;
+        ? data.filter((register) =>
+              register.doctor.toLowerCase().includes(search.toLowerCase())
+          )
+        : data 
 
     return (
         <div className="createRegisterCard">
-            {filteredRegisters.map((register) => (
-                <RegisterCard
-                    key={register.dpi_paciente}
-                    data={register}
-                />
+            {filteredRegisters.map((register, index) => (
+                <RegisterCard key={index} data={register} />
             ))}
         </div>
-    );
-};
+    )
+}
 
-export default CreateRegisterView;
+export default CreateRegisterView
