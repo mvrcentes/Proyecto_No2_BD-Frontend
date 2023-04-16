@@ -11,7 +11,7 @@ const PatientRegisters = ( { data } ) => {
                 <div className="nombre">{data.nombre}</div>
                 <div className="telefono">{data.telefono.replace(/(\d{4})(\d{4})/, "$1 - $2")}</div>
                 <div className="ver">
-                    <Link to="/employeeViewPatients/:id">Visualizar</Link>
+                    <Link to={`/employeeViewPatients/${data.dpi}`}>Visualizar</Link>
                 </div>
             </div>
         </div>
