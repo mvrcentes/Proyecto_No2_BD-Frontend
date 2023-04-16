@@ -1,0 +1,12 @@
+.EmployeeViewContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px;
+    gap: 50px;
+}
+
+.infoCards {
+    display: flex;
+    flex-direction: row;
+}
