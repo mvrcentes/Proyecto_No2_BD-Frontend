@@ -4,76 +4,43 @@ import { useParams } from "react-router-dom"
 import EmployeeView from "../../../components/view/EmployeeView"
 
 //components
-import CardInfoPatient from "./cardInfoPatient/CardInfoPatient"
+import CardInfoPatient from "./CardInfoPatient/CardInfoPatient"
+import TreatmentCard from "./TreatmentCard/TreatmentCard"
 
-import { incidences } from "../../../components/fetchData/FetchData"
+import {
+    incidencesByID,
+    getTreatmentsByDPI,
+} from "../../../components/fetchData/FetchData"
 
 import "./CreateInfoCardView.css"
 
-const MiniCard = ({ title, children }) => {
-    return (
-        <div className="mini-card-info-card">
-            <div className="mini-card-title">{title}</div>
-            <div>{children}</div>
-        </div>
-    )
-}
-
-const CreateInfoCardView = ({ options }) => {
-    const { dpi } = useParams()
-    const [data, setData] = useState([])
+const CreateInfoCardView = ({ info }) => {
+    const { dpi, id } = useParams()
+    const [incidenceData, setIncidenceData] = useState([])
+    const [treatmentData, setTreatmenteData] = useState([])
 
     useEffect(() => {
         async function fetchData() {
-            const result = await incidences(dpi)
-            console.log(result)
-            setData(result)
+            const result = await incidencesByID(dpi, id)
+            setIncidenceData(result)
+            
+            const treatmentsResult = await getTreatmentsByDPI(id)
+            setTreatmenteData(treatmentsResult)
         }
         fetchData()
     }, [dpi])
 
-    console.log(data)
-
     return (
-        <EmployeeView>
-            <div className="fondo-container">
-                <div className="column-container">
-                    <MiniCard title="Doctor">
-                        <div className="doctor-name">{data.doctor}</div>
-                        <div className="especialidad-doctor">Especialidad</div>
-                    </MiniCard>
-
-                    <MiniCard title="Institucion">
-                        <div className="institucion-name-mini-card">
-                            Nombre institucion
-                        </div>
-                    </MiniCard>
-
-                    <MiniCard title="Enfermedad">
-                        <div className="enfermedad-name-mini-card">Gripe</div>
-                    </MiniCard>
-
-                    <MiniCard title="Diagnostico">
-                        <div className="diagnostico-text-mini-card">
-                            Gripe Comun
-                        </div>
-                    </MiniCard>
-                </div>
-
-                <div className="treatments-view-scroll">
-                    <div className="treatment-view">
-                        <div className="treatments-view-date">Date</div>
-                        <MiniCard title="Evolucion">
-                            el paciente presenta mejoras
-                        </MiniCard>
-                        <MiniCard title="Resultado">Resultado</MiniCard>
-                        <MiniCard title="Examen">Radiografia</MiniCard>
-                        <MiniCard title="Cirugia">Cirugia</MiniCard>
-                        <MiniCard title="Medicamento">Paracetamol</MiniCard>
-                    </div>
-                </div>
+        <div className="create-info-card-view-container">
+            {incidenceData.map((dataRegister, index) => (
+                <CardInfoPatient key={index} data={dataRegister} />
+            ))}
+            <div className="treatments-view-scroll">
+                {treatmentData.map((treatmentRegister, index) => (
+                    <TreatmentCard key={index} data={treatmentRegister} />
+                ))}
             </div>
-        </EmployeeView>
+        </div>
     )
 }
 
