@@ -1,15 +1,38 @@
-.fondo-container {
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
-    background-color: var(--second-color);
-    gap: 15px;
-    height: 100%;
-
+.mini-card-info-card {
+    display: inline-block;
+    width: auto;
+    background-color: var(--main-color);
+    padding: 25px;
+    border-radius: 15px;
 }
 
-.row-container {
+.mini-card-title {
+    font-weight: 600;
+}
+
+.fondo-container {
     display: flex;
     flex-direction: row;
+    padding: 30px;
+    gap: 15px;
+    height: 100%;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
     gap: 30px;
+}
+
+.treatments-view-scroll {
+    overflow: scroll;
+}
+
+.treatment-view {
+    background-color: var(--main-color);
+}
+
+.treatments-view-date {
+    font-size: 24px;
+    font-weight: 600;
 }

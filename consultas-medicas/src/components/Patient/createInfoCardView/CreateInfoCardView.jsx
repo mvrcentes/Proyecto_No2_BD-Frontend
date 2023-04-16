@@ -1,38 +1,79 @@
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+
+import EmployeeView from "../../../components/view/EmployeeView"
+
 //components
 import CardInfoPatient from "./cardInfoPatient/CardInfoPatient"
 
+import { incidences } from "../../../components/fetchData/FetchData"
+
 import "./CreateInfoCardView.css"
 
+const MiniCard = ({ title, children }) => {
+    return (
+        <div className="mini-card-info-card">
+            <div className="mini-card-title">{title}</div>
+            <div>{children}</div>
+        </div>
+    )
+}
+
 const CreateInfoCardView = ({ options }) => {
-    options = {
-        medicamentos: ["Sopripren", "Z20", "Vitamina D"],
-        laboratorios: ["Sopripren", "Z20", "Vitamina D"],
-        nota: "Lorem ipsum dolor sit amet consectetur adipiscing elit, at sem aenean sociosqu feugiat ultricies, gravida natoque molestie lectus ligula vitae. A pellentesque libero ullamcorper dictumst dignissim etiam, rutrum risus egestas viverra. Enim est vitae proin rutrum himenaeos fusce netus, aliquet dapibus nec auctor per euismod vel, erat porttitor aenean natoque malesuada cubilia. Platea ultrices phasellus accumsan maecenas quisque cum hac ut, nec torquent massa netus laoreet rhoncus purus aliquam, nostra dapibus tristique sed duis congue leo. Integer netus tempus bibendum phasellus facilisis tortor sapien, ultrices molestie gravida ad magna non mollis, nisi torquent tellus himenaeos iaculis eu. Blandit scelerisque torquent enim dignissim potenti himenaeos, interdum quisque aptent nunc vel mus, vulputate dictum porttitor rhoncus justo.",
-    }
+    const { dpi } = useParams()
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const result = await incidences(dpi)
+            console.log(result)
+            setData(result)
+        }
+        fetchData()
+    }, [dpi])
+
+    console.log(data)
 
     return (
-        <div className="fondo-container">
-            <div className="row-container">
-                <CardInfoPatient
-                    title="Doctor"
-                    options={options.medicamentos}
-                    note={options}
-                    type={false}
-                />
-                <CardInfoPatient
-                    title="Institucion"
-                    options={options.laboratorios}
-                    type={false}
-                />
+        <EmployeeView>
+            <div className="fondo-container">
+                <div className="column-container">
+                    <MiniCard title="Doctor">
+                        <div className="doctor-name">{data.doctor}</div>
+                        <div className="especialidad-doctor">Especialidad</div>
+                    </MiniCard>
 
-                <CardInfoPatient
-                    title="Institucion"
-                    options={options.laboratorios}
-                    type={false}
-                />
+                    <MiniCard title="Institucion">
+                        <div className="institucion-name-mini-card">
+                            Nombre institucion
+                        </div>
+                    </MiniCard>
+
+                    <MiniCard title="Enfermedad">
+                        <div className="enfermedad-name-mini-card">Gripe</div>
+                    </MiniCard>
+
+                    <MiniCard title="Diagnostico">
+                        <div className="diagnostico-text-mini-card">
+                            Gripe Comun
+                        </div>
+                    </MiniCard>
+                </div>
+
+                <div className="treatments-view-scroll">
+                    <div className="treatment-view">
+                        <div className="treatments-view-date">Date</div>
+                        <MiniCard title="Evolucion">
+                            el paciente presenta mejoras
+                        </MiniCard>
+                        <MiniCard title="Resultado">Resultado</MiniCard>
+                        <MiniCard title="Examen">Radiografia</MiniCard>
+                        <MiniCard title="Cirugia">Cirugia</MiniCard>
+                        <MiniCard title="Medicamento">Paracetamol</MiniCard>
+                    </div>
+                </div>
             </div>
-            <CardInfoPatient title="Nota" note={options.nota} type={true} />
-        </div>
+        </EmployeeView>
     )
 }
 
