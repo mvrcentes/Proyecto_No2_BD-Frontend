@@ -9,6 +9,10 @@
     border-bottom: 0.1px solid #6d6d6d59;
 }
 
+.register:hover {
+    background-color: var(--fifth-color);
+}
+
 .registerContainer {
     display: flex;
     flex-direction: row;        
