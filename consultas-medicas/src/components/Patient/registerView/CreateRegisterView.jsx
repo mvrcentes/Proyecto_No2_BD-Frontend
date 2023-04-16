@@ -11,11 +11,9 @@ const { getIncidenceJoined } = FetchData
 const CreateRegisterView = ({search}) => {
     const filteredRegisters = search
     ? getIncidenceJoined.filter((register) =>
-          register.medico.nombre.toLowerCase().includes(search.toLowerCase())
+          register.doctor.toLowerCase().includes(search.toLowerCase())
       )
     : getIncidenceJoined;
-
-    console.log(filteredRegisters)
 
     return (
         <div className="createRegisterCard">
