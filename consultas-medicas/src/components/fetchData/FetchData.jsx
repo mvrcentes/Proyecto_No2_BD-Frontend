@@ -32,16 +32,27 @@ export const incidences = async (dpi) => {
     }
 }
 
+export const incidencesByID = async ( dpi, id ) => {
+    try {
+        return (await axios.get(`${server}/api/incidences/${dpi}/incidence/${id}`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 const doctors = await axios.get(server + "/api/usersEmployee")
 FetchData.getDoctors = doctors.data
 
 // Treatments
-const getTreatment = async (id) => {
-    axios.get(
-        server +
-            `/api/employeeViewPatientsemployeeViewPatients/${id}/moreinfo/treatment`
-    )
+export const getTreatmentsByDPI = async ( id ) => {
+    try {
+        return (await axios.get(`${server}/api/treatments/${id}`)).data
+    } catch (error) {
+        console.error(error)
+    }
 }
-FetchData.getTreatment = getTreatment
+
+
+
 
 export default FetchData
