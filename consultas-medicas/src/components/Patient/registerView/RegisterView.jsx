@@ -19,10 +19,10 @@ const registerView = () => {
         <div className="registerView">
             <Navigation />
             <div className="searchBar">
-                <SearchBar key="2" value={search} onChange={onSearchChange}/>
+                <SearchBar  value={search} onChange={onSearchChange}/>
             </div>
             <div className="CreateRegisterViewContainer">
-                <CreateRegisterView key="3" search={search}/>
+                <CreateRegisterView search={search}/>
             </div>
         </div>
     );
