@@ -18,8 +18,8 @@ import AdminViewReports from './pages/AdminView/AdminViewReports/AdminViewReport
 //employee views
 import EmployeeViewPatients from './pages/EmployeeView/EmployeeViewPatients/EmployeeViewPatients'
 import ViewPatientMoreInfo from './pages/EmployeeView/EmployeeViewPatients/ViewPatientMoreInfo/ViewPatientMoreInfo'
-import CreateInfoCardView from './components/Patient/createInfoCardView/CreateInfoCardView'
 import TraetmentAccordion from './components/EmployeeView/TraetmentAccordion/TraetmentAccordion'
+import ViewPatientTreatments from './pages/EmployeeView/EmployeeViewPatients/ViewPatientTreatments/ViewPatientTreatments'
 
 import EmployeeViewReports from './pages/EmployeeView/EmployeeViewReports/EmployeeViewReports'
 
@@ -41,24 +41,22 @@ function App() {
                 {/* <Route path="/user" element={ <CreateUser />} ></Route> */}
 
                 {/* Routes for Admin */}
-                <Route path="/adminviewentities" element={ <AdminViewEntities />} ></Route>
-                <Route path="/adminviewdoctors" element={ <AdminViewDoctors />} ></Route>
-                <Route path="/adminviewreports" element={ <AdminViewReports />} ></Route>
+                <Route path="/adminviewentities" element={ <AdminViewEntities />} />
+                <Route path="/adminviewdoctors" element={ <AdminViewDoctors />} />
+                <Route path="/adminviewreports" element={ <AdminViewReports />} />
 
                 {/* Routes for employee */}
-                <Route path="/employeeViewPatients" element={ <EmployeeViewPatients />} ></Route>
-                <Route path="/employeeViewPatients/:id" element={ <ViewPatientMoreInfo />} ></Route>
-                <Route path="/employeeViewPatients/:id/moreinfo" element={ <CreateInfoCardView />} ></Route>
-                <Route path="/employeeViewPatients/prueba" element={ <CreateInfoCardView />} ></Route>
-
-                <Route path="/employeeViewReport" element={ <EmployeeViewReports />} ></Route>
+                <Route path="/employeeViewPatients" element={ <EmployeeViewPatients />} />
+                <Route path="/employeeViewPatients/:dpi" element={ <ViewPatientMoreInfo />} />
+                <Route path="/employeeViewPatients/:dpi/incidence/:id" element={ <ViewPatientTreatments />} />
+                <Route path="/employeeViewReport" element={ <EmployeeViewReports />} />
                 
 
                 {/* Routes for patient */}
-                <Route path="/results/:id" element={ <RegisterView />} ></Route>
-                <Route path="/results/:id/consult" element={ <ConsultPage />} ></Route>
-                <Route path="/results/:id/moreinfo" element={ <MoreInfo />} ></Route>
-                <Route path="/results/:id/entities" element={ <EntitiesPage />} ></Route>
+                <Route path="/results/:id" element={ <RegisterView />} />
+                <Route path="/results/:id/consult" element={ <ConsultPage />} />
+                <Route path="/results/:id/moreinfo" element={ <MoreInfo />} />
+                <Route path="/results/:id/entities" element={ <EntitiesPage />} />
             </Routes>
         </div>
     )
