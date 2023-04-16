@@ -16,7 +16,12 @@ import AdminViewDoctors from './pages/AdminView/adminViewDoctors/AdminViewDoctor
 import AdminViewReports from './pages/AdminView/AdminViewReports/AdminViewReports'
 
 //employee views
-import EmloyeeView from './components/EmployeeView/EmloyeeView'
+import EmployeeViewPatients from './pages/EmployeeView/EmployeeViewPatients/EmployeeViewPatients'
+import ViewPatientMoreInfo from './pages/EmployeeView/EmployeeViewPatients/ViewPatientMoreInfo/ViewPatientMoreInfo'
+import CreateInfoCardView from './components/Patient/createInfoCardView/CreateInfoCardView'
+import TraetmentAccordion from './components/EmployeeView/TraetmentAccordion/TraetmentAccordion'
+
+import EmployeeViewReports from './pages/EmployeeView/EmployeeViewReports/EmployeeViewReports'
 
 //patient view
 import RegisterView from './components/Patient/registerView/RegisterView'
@@ -41,7 +46,13 @@ function App() {
                 <Route path="/adminviewreports" element={ <AdminViewReports />} ></Route>
 
                 {/* Routes for employee */}
-                <Route path="/employeeView" element={ <EmloyeeView />} ></Route>
+                <Route path="/employeeViewPatients" element={ <EmployeeViewPatients />} ></Route>
+                <Route path="/employeeViewPatients/:id" element={ <ViewPatientMoreInfo />} ></Route>
+                <Route path="/employeeViewPatients/:id/moreinfo" element={ <CreateInfoCardView />} ></Route>
+                <Route path="/employeeViewPatients/prueba" element={ <CreateInfoCardView />} ></Route>
+
+                <Route path="/employeeViewReport" element={ <EmployeeViewReports />} ></Route>
+                
 
                 {/* Routes for patient */}
                 <Route path="/results/:id" element={ <RegisterView />} ></Route>
