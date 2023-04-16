@@ -9,15 +9,16 @@ const MiniCard = ({title, info, color}) => {
     )
 }
 
-const InfoPatient = ({data}) => {
+const InfoPatient = ({ data }) => {
+    console.log("infopatient", data)
+
     return (
         <div className="info-patient">
-            <div className="title-name">Nombre Nombre Apellido Apellido</div>
-
-            <MiniCard title="Indice masa corporal" info={"hola"} color="morado"/>
-            <MiniCard title="Altura" info={"hola"} color="rojo"/>
-            <MiniCard title="Peso" info={"hola"} color="morado"/>
-            <MiniCard title="Adicciones" info={"hola"} color="naranja"/>
+            <div className="title-name">{ data.nombre }</div>
+            <MiniCard title="Indice masa corporal" info={data.masa_corporal} color="morado"/>
+            <MiniCard title="Altura" info={data.altura} color="rojo"/>
+            <MiniCard title="Peso" info={data.peso} color="morado"/>
+            <MiniCard title="Adicciones" info={data.adicciones ?? "N/A" } color="naranja"/>
         </div>
     )
 }
