@@ -1,0 +1,11 @@
+.mini-card-info-card {
+    display: inline-block;
+    width: auto;
+    background-color: var(--main-color);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.mini-card-title {
+    font-weight: 600;
+}
