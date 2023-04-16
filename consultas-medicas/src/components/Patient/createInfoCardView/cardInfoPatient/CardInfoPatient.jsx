@@ -1,31 +1,33 @@
-import Row from "react-bootstrap/Row"
-import { Link } from "react-router-dom"
+// Component view
+import MiniCard from "../../../MiniCard/MiniCard"
 
 import "./CardInfoPatient.css"
 
-const OptionView = ({ option }) => {
+const CardInfoPatient = ({ data }) => {
     return (
-        <div className="option-view">
-            <div className="info-text">{option}</div>
-        </div>
-    )
-}
+        <div className="column-container">
+            <MiniCard title="Doctor">
+                <div className="doctor-name">{data.doctor}</div>
+                <div className="especialidad-doctor">{data.especialidad}</div>
+            </MiniCard>
 
-const CardInfoPatient = ({ title, options, note, type }) => {
-    return (
-        <div className="info-card-patient">
-            <div className="info-card-patient-container">
-                <div className="info-title-card">{title}</div>
-                <div className="info-row-cards">
-                    {type ? (
-                        <p className="note">{note}</p>
-                    ) : (
-                        options.map((option, index) => (
-                            <OptionView option={option} key={index} />
-                        ))
-                    )}
+            <MiniCard title="Institucion">
+                <div className="institucion-name-mini-card">
+                    {data.institucion}
                 </div>
-            </div>
+            </MiniCard>
+
+            <MiniCard title="Enfermedad">
+                <div className="enfermedad-name-mini-card">
+                    {data.enfermedad}
+                </div>
+            </MiniCard>
+
+            <MiniCard title="Diagnostico">
+                <div className="diagnostico-text-mini-card">
+                    {data.diagnostico}
+                </div>
+            </MiniCard>
         </div>
     )
 }
