@@ -1,0 +1,12 @@
+.treatment-view {
+    background-color: var(--main-color);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.treatments-view-date {
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 25px;
+    padding-top: 25px;
+}
