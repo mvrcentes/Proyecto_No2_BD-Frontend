@@ -1,27 +1,24 @@
-import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
+import MiniCard from "../../MiniCard/MiniCard"
 
-import "./CardFormPatient.css";
+import "./CardFormPatient.css"
 
-const OptionView = ({ option }) => {
+const CardFormPatient = ({ title, options, note, type }) => {
     return (
-        <div className="optionView">
-            <div className="text">{option}</div>
-        </div>
-    );
-};
+        <div className="card-form-patient">
+            <div className="patient-title">Paciente</div>
+            <MiniCard title="DPI" className="prueba">
+                <input type="text" placeholder="2134 56789 0123" className="patient-input-form"/>
+            </MiniCard>
 
-const CardFormPatient = ({ title, options, note, type}) => {
-    return (
-        <div className="cardFormPatientContainer">
-            <div className="cardFormPatient">
-                <div className="title-card">{title}</div>
-                <div className="row-information">
-                    {type ? <p className="note">{note}</p> : options.map((option, index) => (<OptionView option={option} key={index} /> ))}
-                </div>
-            </div>
-        </div>
-    );
-};
+            <MiniCard title="Nombre">
+                <input type="text" placeholder="Nombre del paciente" className="patient-input-form"/>
+            </MiniCard>
 
-export default CardFormPatient;
+            <MiniCard title="Estado">
+                <input type="text" placeholder="Estado del paciente" className="patient-input-form"/>
+            </MiniCard>
+        </div>
+    )
+}
+
+export default CardFormPatient

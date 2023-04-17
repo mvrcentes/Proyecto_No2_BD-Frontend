@@ -1,43 +1,26 @@
-.optionView {
-    display: flex;
-    height: 40px;
-    background-color: #F4F5FE;
-    border-radius: 5px;
-    overflow: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-
-.cardFormPatientContainer {
-    display: inline-block;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    min-height: 220px;
-    min-width: 400px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-}
-
-.cardFormPatient {
+.card-form-patient {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    background-color: var(--main-color);
+    border-radius: 15px;
+    overflow: hidden;
+    min-width: 350px;
 }
 
-.title {
-    font-weight: 600;
-    margin: 20px 0px 20px 0px;
+.patient-title {
+    font-size: 24px;
+    padding-top: 25px;
+    padding-left: 25px;
 }
 
-.fila {
-    display: flex;
-    flex-direction: row;
-    gap : 15px;
+.patient-input-form {
+    background-color: var(--second-color);
+    padding: 5px 5px 5px 15px;
+    height: 50px;
+    width: 100%;
 }
 
+
+.prueba {
+    width: 100%;
+}
