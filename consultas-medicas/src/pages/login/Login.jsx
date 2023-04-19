@@ -1,22 +1,50 @@
-import { Link } from "react-router-dom"
-import React, { useState, useEffect } from "react"
-import axios from "axios";
+import { Link, Navigate, useNavigate } from "react-router-dom"
+import React, { useState, useEffect, useContext } from "react"
+
+import axios from "axios"
 
 import "./style.css"
 
-// import Auth from "../../components/fetchData/Auth";
+import { useRolContext } from "../../contexts/RolProvider"
+
 
 const Login = () => {
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [username, setUsername] = useState("prueba")
+    const [password, setPassword] = useState("prueba")
+    const { rol, setRol } = useRolContext();
+    const navigate = useNavigate()
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        const res = await axios.post("http://localhost:4000/api/signup/signup", {
-            email,
-            password
-        });
-        console.log("first")
+    switch (rol) {
+        case 0:
+            return <Navigate to={"/adminviewentities"} />
+            
+        case 1:
+            return <Navigate to={"/employeeViewPatients"} />       
+    }
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        console.log("calling app")
+        postData()
+            .then((response) => {
+                if (!response.data) {
+                     return console.error("error")
+                }
+                setRol(response.data.rol_id)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+
+    const postData = async (event) => {
+        return await axios.post(
+            `http://127.0.0.1:4000/api/auth/signin`, {
+                username, 
+                password
+            } 
+        )
     }
 
     return (
@@ -46,14 +74,15 @@ const Login = () => {
                                             <form onSubmit={onSubmit}>
                                                 <div className="form-group">
                                                     <input
-                                                        type="email"
-                                                        name="email"
+                                                        type="username"
+                                                        name="username"
                                                         className="form-style"
                                                         placeholder="Your Email"
-                                                        id="logemail"
+                                                        id="logusername"
                                                         autoComplete="off"
+                                                        value={username}
                                                         onChange={(event) =>
-                                                            setEmail(
+                                                            setUsername(
                                                                 event.target
                                                                     .value
                                                             )
@@ -69,6 +98,7 @@ const Login = () => {
                                                         placeholder="Your Password"
                                                         id="logpass"
                                                         autoComplete="off"
+                                                        value={password}
                                                         onChange={(event) =>
                                                             setPassword(
                                                                 event.target
@@ -78,12 +108,15 @@ const Login = () => {
                                                     />
                                                     <i className="input-icon uil uil-lock-alt"></i>
                                                 </div>
+                                                
                                                 <button
                                                     type="submit"
                                                     className="btn mt-4"
+                                                    onClick={onSubmit}
                                                 >
-                                                    submitt
+                                                    Inicar sesión
                                                 </button>
+                                    
                                             </form>
 
                                             <p className="mb-0 mt-4 text-center">
@@ -114,14 +147,14 @@ const Login = () => {
                                             </div>
                                             <div className="form-group mt-2">
                                                 <input
-                                                    type="email"
-                                                    name="logemail"
+                                                    type="username"
+                                                    name="logusername"
                                                     className="form-style"
                                                     placeholder="Your Email"
-                                                    id="logemail"
+                                                    id="logusername"
                                                     autoComplete="off"
                                                     onChange={(event) =>
-                                                        setEmail(
+                                                        setUsername(
                                                             event.target.value
                                                         )
                                                     }
@@ -145,7 +178,7 @@ const Login = () => {
                                                 <i className="input-icon uil uil-lock-alt"></i>
                                             </div>
                                             <a href="#" className="btn mt-4">
-                                                submit
+                                                submittt
                                             </a>
                                         </div>
                                     </div>
