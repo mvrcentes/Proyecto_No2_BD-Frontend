@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+
 //style
 import "./CreateDoctorRegisterView.css"
 
@@ -5,23 +7,30 @@ import "./CreateDoctorRegisterView.css"
 import RegisterCard from "../registerCard/RegisterCard"
 
 //data
-import FetchData from "../../../fetchData/FetchData"
-const { getDoctors } = FetchData
+import  { getDoctors }  from "../../../fetchData/FetchData"
+
 
 const CreateDoctorRegisterView = ({ search }) => {
+    const [data, setData] = useState([])
+    
     const handleEntityChange = (registerIndex, newEntity) => {
-        const newRegisters = [...getDoctors]
+        const newRegisters = [...data]
         newRegisters[registerIndex].direccion = newEntity
-        console.log(newEntity)
     }
 
-    console.log(getDoctors)
+    useEffect(() => {
+        async function fetchData() {
+            const result = await getDoctors()
+            setData(result)
+        }
+        fetchData()
+    }, [])
 
     const filteredDoctors = search
-        ? getDoctors.filter((person) =>
+        ? data.filter((person) =>
               person.nombre.toLowerCase().includes(search.toLowerCase())
           )
-        : getDoctors
+        : data
 
     return (
         <div className="CreateRegisterView">
@@ -29,6 +38,7 @@ const CreateDoctorRegisterView = ({ search }) => {
                 <RegisterCard
                     key={index}
                     nameLastName={doctor.nombre}
+                    numCole={doctor.num_colegiado}
                     entityName={doctor.institucion}
                     entityAddress={doctor.direccion}
                     onChange={handleEntityChange}
