@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import Dropdown from "react-bootstrap/Dropdown";
-import Form from "react-bootstrap/Form";
+import React, { useEffect, useState } from "react"
+import Dropdown from "react-bootstrap/Dropdown"
+import Form from "react-bootstrap/Form"
 
-//data 
-import FetchData from "../../../../fetchData/FetchData";
-const { getEntities } = FetchData
+//data
+import { getEntities } from "../../../../fetchData/FetchData"
+import { useEntityIDContext } from "../../../../../contexts/EntityIDProvider"
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div
         href=""
         ref={ref}
         onClick={(e) => {
-            e.preventDefault();
-            onClick(e);
+            e.preventDefault()
+            onClick(e)
         }}
     >
         {children}
         &#x25bc;
     </div>
-));
+))
 
 const CustomMenu = React.forwardRef(
     ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {
-        const [value, setValue] = useState("");
+        const [value, setValue] = useState("")
 
         return (
             <div
@@ -49,31 +49,47 @@ const CustomMenu = React.forwardRef(
                     )}
                 </ul>
             </div>
-        );
+        )
     }
-);
+)
 
-const SearchDropDown = ({ register, onSelect }) => {
-    const [selectedItem, setSelectedItem] = useState(register);
+const SearchDropDown = ({ register, onSelect, numCole }) => {
+    const [selectedItem, setSelectedItem] = useState(register)
+    const [data, setData] = useState([])
+    const { setEntityID } = useEntityIDContext()
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async() => {
+        const result = await getEntities()
+        setData(result)
+    }
 
     return (
-        <Dropdown  onSelect={(eventKey) => {
-            onSelect(eventKey);
-            setSelectedItem(eventKey);
-          }}>
+        <Dropdown
+            onSelect={(eventKey) => {
+                onSelect(eventKey)
+                setSelectedItem(eventKey)
+                const selectedItemObj = data.find((item) => item.nombre === eventKey)
+
+                setEntityID(selectedItemObj.id)
+            }}
+        >
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
                 {selectedItem}
             </Dropdown.Toggle>
 
             <Dropdown.Menu as={CustomMenu}>
-                {getEntities.map((r, index) => (
-                    <Dropdown.Item key={index} eventKey={r.direccion}>
-                        {r.direccion}
+                {data.map((r, index) => (
+                    <Dropdown.Item key={index} eventKey={r.nombre}>
+                        {r.nombre}
                     </Dropdown.Item>
                 ))}
             </Dropdown.Menu>
         </Dropdown>
-    );
-};
+    )
+}
 
-export default SearchDropDown;
+export default SearchDropDown
