@@ -4,19 +4,25 @@ import { useState } from "react"
 import "./RegisterCard.css"
 
 //components
-import SearchDropDown from "./SearchDropDown/SearchDropDown"
+import SearchDropDown from "../registerCard/SearchDropDown/SearchDropDown"
+
+//Data
+import { updateDoctor } from "../../../../components/fetchData/FetchData"
+import { useEntityIDContext } from "../../../../contexts/EntityIDProvider"
 
 const RegisterCard = ({
     nameLastName,
+    numCole,
     entityName,
     entityAddress,
     onChange,
     index,
 }) => {
     const [availableUpdate, setAvailableUpdate] = useState(false)
-
-    const onClick = () => {
-        console.log("aqui tiene que ir el put")
+    const { entityID } = useEntityIDContext()
+    const onClick = async () => {
+        console.log(entityID)
+        await updateDoctor(numCole, entityID)
         setAvailableUpdate(false)
     }
 
@@ -24,12 +30,13 @@ const RegisterCard = ({
         <div className="registerCard">
             <div className="fila">
                 <div className="nameLastName">{nameLastName}</div>
+                <div className="numCole">{numCole}</div>
                 <div className="searchDropDown">
                     <SearchDropDown
                         className="entityName"
                         register={entityName}
+                        numCole={numCole}
                         onSelect={() => {
-                            console.log("onselect")
                             onChange(index)
                             setAvailableUpdate(true)
                         }}

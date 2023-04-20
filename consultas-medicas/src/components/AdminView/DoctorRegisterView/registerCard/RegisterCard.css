@@ -25,6 +25,10 @@
     min-width: 200px;
 }
 
+.numCole {
+    min-width: 70px;
+}
+
 .searchDropDown {
     align-self: center;
     min-width: 200px;
@@ -33,5 +37,5 @@
 
 .entityAddress {
     align-self: center;
-    min-width: 200px;
+    min-width: 300px;
 }
