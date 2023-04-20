@@ -7,11 +7,7 @@ import View from "../../../components/view/View"
 import SearchBar from "../../../components/searchBar/SearchBar"
 import CreateDoctorRegisterView from "../../../components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView"
 import menuOptions from "../../../components/AdminView/MenuOptions"
-
-//icons
-import menuDoctor from "../../../assets/menu-doctor.svg"
-import menu_entidad from "../../../assets/menu-entidad.svg"
-import signOut from "../../../assets/SignOut.svg"
+import PlusButton from "../../../components/PlusButton/PlusButton"
 
 //style
 import "./AdminViewDoctors.css"
@@ -21,7 +17,6 @@ const AdminViewDoctors = () => {
 
     const onSearchChange = (e) => {
         setSearch(e.target.value)
-        console.log(search)
     }
 
     return (
@@ -33,6 +28,7 @@ const AdminViewDoctors = () => {
                 <div className="doctorsContainer">
                     <CreateDoctorRegisterView search={search} />
                 </div>
+                <PlusButton />
             </div>
         </View>
     )

@@ -22,8 +22,6 @@ const CreateRegisterView = ({ search }) => {
         fetchData()
     }, [dpi])
 
-    console.log("first", data)
-
     const filteredRegisters = search
         ? data.filter((register) =>
               register.doctor.toLowerCase().includes(search.toLowerCase())

@@ -4,7 +4,6 @@ const RolContext = createContext(null)
 
 export const useRolContext = () => useContext(RolContext)
 
-
 export const RolProvider = ({ children }) => {
     const [rol, setRol] = useState(
         () => {

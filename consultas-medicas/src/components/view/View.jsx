@@ -1,20 +1,13 @@
 //funciones
 import { Link } from "react-router-dom";
+import { useRolContext } from "../../contexts/RolProvider"
 
 //style
 import "./View.css";
 
-//iconos
-import menu_doctor from "../../assets/menu-doctor.svg";
-import menu_entidad from "../../assets/menu-entidad.svg";
-import signOut from "../../assets/SignOut.svg";
-
-import EntityForm from "../AdminView/entityForm/EntityForm";
-import CreateHospitalView from "../EntityView/EntityView/CreateEntityView";
-
-const ButtonMenu = ({ icon, text }) => {
+const ButtonMenu = ({ icon, text, onClick }) => {
     return (
-        <button className="buttonMenu">
+        <button className="buttonMenu" onClick={() => onClick()}> 
             <div className="buttonMenuContainer">
                 <img className="icon" src={icon}></img>
                 <div className="text">{text}</div>
@@ -24,6 +17,12 @@ const ButtonMenu = ({ icon, text }) => {
 };
 
 function View({ menuOptions, tipo, children }) {
+    const { setRol } = useRolContext()
+
+    const handleRol = () => {
+        setRol(null)
+    }
+
     return (
         <div className="view">
             <div className="menuView">
@@ -37,6 +36,7 @@ function View({ menuOptions, tipo, children }) {
                                 key={index}
                                 icon={opcion[0]}
                                 text={opcion[1]}
+                                onClick={opcion[1] === "Cerrar sesión" ? handleRol : null}
                             />
                         </Link>
                     ))}

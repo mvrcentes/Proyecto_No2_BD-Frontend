@@ -10,8 +10,6 @@ const MiniCard = ({title, info, color}) => {
 }
 
 const InfoPatient = ({ data }) => {
-    console.log("infopatient", data)
-
     return (
         <div className="info-patient">
             <div className="title-name">{ data.nombre }</div>
