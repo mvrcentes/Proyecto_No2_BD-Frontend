@@ -110,7 +110,14 @@ FetchData.getReport4 = report4.data
 const report5 = await axios.get(server + "/api/reports/5")
 FetchData.getReport5 = report5.data
 
+// Inventory
+const inventory0 = await axios.get(server + "/api/inventory/0")
+FetchData.getInventory0 = inventory0.data
 
+const inventory1 = await axios.get(server + "/api/inventory/1")
+FetchData.getInventory1 = inventory1.data
 
+const inventory2 = await axios.get(server + "/api/inventory/2")
+FetchData.getInventory2 = inventory2.data
 
 export default FetchData

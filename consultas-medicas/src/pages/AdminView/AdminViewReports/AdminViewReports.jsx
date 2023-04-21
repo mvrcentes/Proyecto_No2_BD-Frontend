@@ -12,7 +12,6 @@ import FetchData from "../../../components/fetchData/FetchData"
 import { useState } from "react"
 import SearchBar from "../../../components/searchBar/SearchBar"
 
-
 const MiniCard_r1 = ({ tupla }) => {
     return (
         <div className="miniCard">
@@ -45,9 +44,6 @@ const MiniCard_r3 = ({ tupla }) => {
 }
 
 const MiniCard_r4 = ({ tupla }) => {
-    console.log(" MINICARD_4 " + tupla)
-    console.log(tupla)
-    console.log(" MINICARD_4 " + tupla)
     return (
         <div className="miniCard">
             <span className="queso">{tupla.nombre}</span>
@@ -119,7 +115,7 @@ const GenerarContenido = (texto, boton, filtro = 0) => {
                 )
             }
             else{
-                const finishTeacher = texto.filter(objeto => (objeto.nombre).toLowerCase().includes(filtro))
+                const finishTeacher = texto.filter(objeto => (objeto.nombre).toLowerCase().includes(filtro.toLowerCase()))
                 console.log("FINISH TEACHER")
                 console.log(finishTeacher)
                 console.log("FINISH TEACHER")

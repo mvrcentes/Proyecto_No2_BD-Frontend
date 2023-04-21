@@ -1,0 +1,92 @@
+
+.QueryButton{
+    background-color: var(--main-color);
+    height: 60px;
+    width: 325px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    margin: 7px;
+  }
+  
+  .QueryButtonContainer {
+  display: inline-block;
+  padding: 5px;
+  gap: 20px;
+  }
+  
+  .ReportContainer {
+  height: 100%;
+  width: 100%;
+  background-color: var(--main-color);  
+  /* background-color: aqua; */
+  border-radius: 15px;
+  padding: 25px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  /* position: relative;
+  right: 350px;
+  top: 150px; */
+  }
+  
+  .prueba-centrar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 15px;
+  }
+  
+  .miniCard{
+  /* background-color: var(--second-color); */
+  border-radius: 15px;
+  border: none;
+  padding: 2px;
+  margin: 4px;
+  /* width: 400px; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .queso {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--third-color);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 15px 5px;
+  width: 135px;
+  height: 75px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  }
+  
+  .titulos {
+  /* background-color: var(--third-color); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .titulo {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--fourth-color);
+  border-radius: 15px;
+  padding: 8px;
+  margin: 5px 5px;
+  width: 135px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }

@@ -20,6 +20,7 @@ import ViewPatientMoreInfo from
 import TraetmentAccordion from './components/EmployeeView/TraetmentAccordion/TraetmentAccordion'
 import ViewPatientTreatments from './pages/EmployeeView/EmployeeViewPatients/ViewPatientTreatments/ViewPatientTreatments'
 import EmployeeViewReports from './pages/EmployeeView/EmployeeViewReports/EmployeeViewReports'
+import Inventory from './pages/EmployeeView/InventoryView/Inventory'
 
 //patient view
 import RegisterView from './components/Patient/registerView/RegisterView'
@@ -36,15 +37,8 @@ import { useSessionContext } from './contexts/SessionProvider'
 import Modalll from './components/Modal/Modalll'
 
 function App() {
-<<<<<<< Updated upstream
     const { rol } = useRolContext();
     console.log('APPPP')
-=======
-    const { rol } = useRolContext()
-    const { sessionToken } = useSessionContext()
-
-
->>>>>>> Stashed changes
     return (
         <div className="App">            
             <Routes>
@@ -70,6 +64,7 @@ function App() {
                     <Route path="/employeeViewPatients/:dpi" element={ <ViewPatientMoreInfo />} />
                     <Route path="/employeeViewPatients/:dpi/incidence/:id" element={ <ViewPatientTreatments />} />
                     <Route path="/employeeViewReport" element={ <EmployeeViewReports />} />
+                    <Route path="/employeeViewInventory" element={ <Inventory/>} />
                 </Route>
 
                 

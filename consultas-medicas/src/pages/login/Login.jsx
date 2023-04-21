@@ -15,14 +15,8 @@ const Login = () => {
     const { sessionToken, setSessionToken } = useSessionContext()
     const navigate = useNavigate()
 
-<<<<<<< Updated upstream
     // switch (sessionToken.rol_id) {
     switch (0) {
-=======
-    console.log(sessionToken)
-
-    switch (sessionToken.rol_id) {
->>>>>>> Stashed changes
         case 0:
             return <Navigate to={"/adminviewentities"} />
 
@@ -30,12 +24,7 @@ const Login = () => {
             return <Navigate to={"/employeeViewPatients"} />
     }
 
-<<<<<<< Updated upstream
-    const onSubmit = (event) => {
-        console.log('on submig')
-=======
     const onSubmit = async (event) => {
->>>>>>> Stashed changes
         event.preventDefault()
         await postData()
             .then((response) => {
