@@ -38,7 +38,8 @@ import Modalll from './components/Modal/Modalll'
 
 function App() {
     const { rol } = useRolContext();
-    console.log('APPPP')
+    const { sessionToken } = useSessionContext();
+    
     return (
         <div className="App">            
             <Routes>
@@ -50,8 +51,8 @@ function App() {
 
 
                 {/* Routes for Admin */}
-                {/* <Route element={<ProtectedRoutes rol={rol} needs={0} redirectTo='/login'/>} > */}
-                <Route element={<ProtectedRoutes rol={0} needs={0} redirectTo='/login'/>} >
+                <Route element={<ProtectedRoutes rol={rol} needs={0} redirectTo='/login'/>} >
+                {/* <Route element={<ProtectedRoutes rol={0} needs={0} redirectTo='/login'/>} > */}
                     <Route path="/adminviewentities" element={ <AdminViewEntities />} />
                     <Route path="/adminviewdoctors" element={ <AdminViewDoctors />} />
                     <Route path="/adminviewreports" element={ <AdminViewReports />} />

@@ -15,13 +15,15 @@ const Login = () => {
     const { sessionToken, setSessionToken } = useSessionContext()
     const navigate = useNavigate()
 
-    // switch (sessionToken.rol_id) {
-    switch (0) {
+    switch (sessionToken.rol_id) {
+        // switch (0) {
         case 0:
-            return <Navigate to={"/adminviewentities"} />
+            // return <Navigate to={"/adminviewentities"} />
+            navigate("/adminviewentities")
 
         case 1:
-            return <Navigate to={"/employeeViewPatients"} />
+            // return <Navigate to={"/employeeViewPatients"} />
+            navigate("/employeeViewPatients")
     }
 
     const onSubmit = async (event) => {
@@ -39,11 +41,11 @@ const Login = () => {
     }
 
     const postData = async () => {
-        const r = await axios.post(`http://127.0.0.1:4000/api/auth/signin`, {
+        const r = await axios.post(`http://192.168.0.2:4000/api/auth/signin`, {
             username,
             password,
         })
-        
+
         console.log(r)
 
         setSessionToken({
@@ -51,6 +53,7 @@ const Login = () => {
             num_colegiado: r.num_colegiado,
             institucion: r.institucion,
         })
+
         return r
     }
 

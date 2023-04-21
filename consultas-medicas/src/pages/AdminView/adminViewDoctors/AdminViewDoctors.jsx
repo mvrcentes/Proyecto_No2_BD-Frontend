@@ -9,7 +9,7 @@ import CreateDoctorRegisterView from "../../../components/AdminView/DoctorRegist
 import menuOptions from "../../../components/AdminView/MenuOptions"
 import PlusButton from "../../../components/PlusButton/PlusButton"
 import Modalll from "../../../components/Modal/Modalll"
-import CardFormPatient from "../../../components/EmployeeView/CardFormPatient/CardFormPatient"
+import CardFormDoctor from "../../../components/AdminView/CardFormDoctor/CardFormDoctor"
 
 //style
 import "./AdminViewDoctors.css"
@@ -39,7 +39,7 @@ const AdminViewDoctors = () => {
                 </div>
                 <PlusButton onClick={toggleModal} />
                 <Modalll modal={modal} handleClose={toggleModal}>
-                    <CardFormPatient />
+                    <CardFormDoctor />
                 </Modalll>
             </div>
         </View>
