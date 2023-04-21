@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const server = "http://192.168.1.13:4000"
+const server = "http://127.0.0.1:4000"
 
 let FetchData = {}
 
@@ -9,9 +9,6 @@ FetchData.getPatients = patients.data
 
 
 export const patientByDPI = async (dpi) => {
-    console.log("PatientBYID", dpi)
-    console.log("PatientBYID", (await axios.get(`${server}/api/Patients/${dpi}`)).data)
-    console.log((await (axios.get(`${server}/api/Patients/${dpi}`))).data)
     try {
         return (await axios.get(`${server}/api/Patients/${dpi}`)).data
     } catch (error) {
@@ -19,10 +16,16 @@ export const patientByDPI = async (dpi) => {
     }
 }
 
-const entities = await axios.get(server + "/api/entities")
-FetchData.getEntities = entities.data
+// const entities = await axios.get(server + "/api/entities")
+// FetchData.getEntities = entities.data
 
-
+export const getEntities = async () => {
+    try {
+        return (await axios.get(`${server}/api/entities`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 export const incidences = async (dpi) => {
     try {
@@ -40,13 +43,50 @@ export const incidencesByID = async ( dpi, id ) => {
     }
 }
 
-const doctors = await axios.get(server + "/api/usersEmployee")
-FetchData.getDoctors = doctors.data
+export const postIncidence = async ( dpi, data ) => {
+    try {
+        return (await axios.post(`${server}/api/incidences/${dpi}`, data)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
+//Diseases
+export const getDiseases = async () => {
+    try {
+        return (await axios.get(`${server}/api/diseases`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
 
 // Treatments
 export const getTreatmentsByDPI = async ( id ) => {
     try {
         return (await axios.get(`${server}/api/treatments/${id}`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+//----- Admin
+export const getDoctors = async () => {
+    try {
+        return (await axios.get(`${server}/api/usersEmployee`)).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const updateDoctor = async ( id, institucion ) => {
+    try {
+        return (await axios.put(`${server}/api/usersEmployee/${id}`, 
+        {
+            id,
+            institucion   
+        })).data
     } catch (error) {
         console.error(error)
     }
