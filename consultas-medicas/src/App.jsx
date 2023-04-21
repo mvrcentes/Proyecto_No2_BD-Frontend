@@ -31,12 +31,20 @@ import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes'
 
 //contexts
 import { useRolContext } from './contexts/RolProvider'
+import { useSessionContext } from './contexts/SessionProvider'
 
 import Modalll from './components/Modal/Modalll'
 
 function App() {
+<<<<<<< Updated upstream
     const { rol } = useRolContext();
     console.log('APPPP')
+=======
+    const { rol } = useRolContext()
+    const { sessionToken } = useSessionContext()
+
+
+>>>>>>> Stashed changes
     return (
         <div className="App">            
             <Routes>
@@ -44,7 +52,7 @@ function App() {
                 <Route path="/" element={<Menu />}></Route>
                 <Route path="/login" element={ <Login /> }></Route>
                 <Route path="/entities" element={ <HospitalsView /> }></Route>
-                <Route path="/modal" element={ <Modalll /> }></Route>3
+                <Route path="/modal" element={ <Modalll /> }></Route>
 
 
                 {/* Routes for Admin */}

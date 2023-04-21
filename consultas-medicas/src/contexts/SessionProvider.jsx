@@ -6,9 +6,9 @@ export const useSessionContext = () => useContext(SessionContext)
 
 export const SessionProvider = ({ children }) => {
     const [sessionToken, setSessionToken] = useState({
-        "rol_id": "",
-        "num_colegiado": "",
-        "institucion": "",
+        rol_id: "",
+        num_colegiado: "",
+        institucion: ""
     })
 
     useEffect(() => {

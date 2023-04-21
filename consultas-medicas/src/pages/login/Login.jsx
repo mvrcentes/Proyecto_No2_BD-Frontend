@@ -12,11 +12,17 @@ const Login = () => {
     const [username, setUsername] = useState("prueba")
     const [password, setPassword] = useState("prueba")
     const { rol, setRol } = useRolContext()
-    const { sessionToken ,setSessionToken } = useSessionContext()
+    const { sessionToken, setSessionToken } = useSessionContext()
     const navigate = useNavigate()
 
+<<<<<<< Updated upstream
     // switch (sessionToken.rol_id) {
     switch (0) {
+=======
+    console.log(sessionToken)
+
+    switch (sessionToken.rol_id) {
+>>>>>>> Stashed changes
         case 0:
             return <Navigate to={"/adminviewentities"} />
 
@@ -24,10 +30,14 @@ const Login = () => {
             return <Navigate to={"/employeeViewPatients"} />
     }
 
+<<<<<<< Updated upstream
     const onSubmit = (event) => {
         console.log('on submig')
+=======
+    const onSubmit = async (event) => {
+>>>>>>> Stashed changes
         event.preventDefault()
-        postData()
+        await postData()
             .then((response) => {
                 if (!response.data) {
                     return console.error("error")
@@ -39,14 +49,18 @@ const Login = () => {
             })
     }
 
-    const postData = async (event) => {
+    const postData = async () => {
         const r = await axios.post(`http://127.0.0.1:4000/api/auth/signin`, {
             username,
             password,
         })
+        
+        console.log(r)
+
         setSessionToken({
-            "rol_id": r.rol_id,
-            "num_colegiado": r.num_colegiado
+            rol_id: r.rol_id,
+            num_colegiado: r.num_colegiado,
+            institucion: r.institucion,
         })
         return r
     }

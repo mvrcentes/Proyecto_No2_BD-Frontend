@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import "./Modalll.css"
 
-const Modalll = ({ modal, handleClose, children }) => {
+const Modalll = ({ modal, handleClose, children, onClick }) => {
     return (
         <>
             {modal && (
@@ -10,8 +10,8 @@ const Modalll = ({ modal, handleClose, children }) => {
                     <div onClick={handleClose} className="overlay"></div>
                     <div className="modalll-content">
                         {children}
-                        <button className="close-modal" onClick={handleClose}>
-                            CLOSE
+                        <button className="close-modal" onClick={onClick}>
+                            AÑADIR
                         </button>
                     </div>
                 </div>

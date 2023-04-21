@@ -9,15 +9,14 @@ import { getDiseases, postIncidence } from "../../fetchData/FetchData"
 
 import "./IncidenceForm.css"
 
-
-const IncidenceForms = ({ entityName, diseaseName, dpi }) => {
+const IncidenceForms = () => {
     const [diseases, setDiseases] = useState(null)
+    const [disease, setDisease] = useState(null)
     const [diagnostico, setDiagnostico] = useState(null)
-    const [entityID, setEntityID] = useState(null)
 
-    const fetchData = async () => setData(await getDiseases())
+    const fetchData = async () => setDiseases(await getDiseases())
 
-    useEffect(() => {    
+    useEffect(() => {
         fetchData()
     }, [])
 
@@ -30,20 +29,17 @@ const IncidenceForms = ({ entityName, diseaseName, dpi }) => {
         setDiagnostico(diagnostico)
     }
 
+    console.log({ diseases})
+
     return (
         <div className="card-form-patient">
             <div className="patient-title">Incidencia</div>
-            <MiniCard title="Institución">
-                <input
-                    type="text"
-                    placeholder="Nombre de institución"
-                    className="patient-input-form"
-                    value={entityName}
+            <MiniCard title="">
+                <SearchToggleDown
+                    value={diseases.find((e) => e.id == disease)?.nombre ?? "Enfermedad"}
+                    onSelect={(id) => setDisease(id)}
+                    data={diseases}
                 />
-            </MiniCard>
-
-            <MiniCard title="Enfermedad">
-                <SearchToggleDown value="Escoge la enfermedad"  data={diseases} />
             </MiniCard>
 
             <MiniCard title="Diagnostico">

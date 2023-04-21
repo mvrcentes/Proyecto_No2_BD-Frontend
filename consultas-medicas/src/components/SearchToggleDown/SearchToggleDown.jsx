@@ -54,7 +54,6 @@ const SearchToggleDown = ({ value ,onSelect, data }) => {
         <Dropdown
             onSelect={(eventKey) => {
                 onSelect(eventKey)
-                setSelectedItem(eventKey)
             }}
         >
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">

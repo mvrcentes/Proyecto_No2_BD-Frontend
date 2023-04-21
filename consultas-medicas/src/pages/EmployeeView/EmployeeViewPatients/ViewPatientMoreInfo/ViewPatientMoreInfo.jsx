@@ -9,16 +9,20 @@ import SearchBar from "../../../../components/searchBar/SearchBar"
 import InfoPatient from "../../../../components/EmployeeView/InfoPatient/InfoPatient"
 import CreateRegisterView from "../../../../components/Patient/registerView/CreateRegisterView"
 import PlusButton from "../../../../components/PlusButton/PlusButton"
-import Modal from "../../../../components/Modal/Modalll"
 import IncidenceForm from "../../../../components/EmployeeView/IncidenceForm/IncidenceForm"
 import Modalll from "../../../../components/Modal/Modalll"
 
 // Data
-import { patientByDPI } from "../../../../components/fetchData/FetchData"
+import {
+    patientByDPI,
+    postIncidence,
+} from "../../../../components/fetchData/FetchData"
+import { useSessionContext } from "../../../../contexts/SessionProvider"
 
 import "./ViewPatientMoreInfo.css"
 
 const ViewPatientMoreInfo = () => {
+    const { sessionToken } = useSessionContext()
     const { dpi } = useParams()
     const [data, setData] = useState([])
     const [search, setSearch] = useState("")
@@ -40,6 +44,19 @@ const ViewPatientMoreInfo = () => {
         setModal(!modal)
     }
 
+    console.log(sessionToken)
+
+    const onClick = () => {
+        postIncidence(dpi, {
+            patient_dpi: dpi,
+            doctor_colegiate_number: sessionToken,
+            entity: "",
+            sickness: "",
+            exams: "",
+            surgeries: "",
+        })
+    }
+
     return (
         <EmployeeView>
             <div className="EmployeeViewContainer">
@@ -52,7 +69,11 @@ const ViewPatientMoreInfo = () => {
                 </div>
                 <PlusButton onClick={() => handleModal()} />
 
-                <Modalll modal={modal} handleClose={handleModal}>
+                <Modalll
+                    modal={modal}
+                    handleClose={handleModal}
+                    onClick={onclick}
+                >
                     <IncidenceForm></IncidenceForm>
                 </Modalll>
             </div>
