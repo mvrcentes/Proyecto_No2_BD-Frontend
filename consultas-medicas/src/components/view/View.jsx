@@ -1,6 +1,7 @@
 //funciones
 import { Link } from "react-router-dom";
 import { useRolContext } from "../../contexts/RolProvider"
+import logo2 from "../../assets/logo2.svg"
 
 //style
 import "./View.css";
@@ -28,7 +29,7 @@ function View({ menuOptions, tipo, children }) {
             <div className="menuView">
                 <div className="menuViewContainer">
                     <Link to="/">
-                        <h1>Logo</h1>
+                        <img src={logo2}></img>
                     </Link>
                     {menuOptions.map((opcion, index) => (
                         <Link to={opcion[2]}>
