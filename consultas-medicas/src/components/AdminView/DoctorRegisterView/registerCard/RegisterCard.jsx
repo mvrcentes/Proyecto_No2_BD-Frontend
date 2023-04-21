@@ -20,7 +20,6 @@ const RegisterCard = ({ doctor, refresh }) => {
     const fetchData = async () => setData(await getEntities())
 
     
-
     useEffect(() => {
         fetchData()
     }, [])

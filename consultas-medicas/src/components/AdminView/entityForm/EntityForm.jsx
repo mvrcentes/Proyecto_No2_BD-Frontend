@@ -5,8 +5,11 @@ import "./entityForm.css"
 import axios from "axios"
 import Dropdown from "react-bootstrap/Dropdown"
 
+import { addEntity } from "../../../components/fetchData/FetchData"
+
 const EntityForm = () => {
     const [info, setInfo] = useState({
+        id: 0,
         name: "",
         address: "",
         phone: "",
@@ -31,16 +34,12 @@ const EntityForm = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault()
-        const res = await axios.post("http://localhost:4000/api/hospitales", {
-            name: info.name,
-            address: info.address,
-            phone: info.phone,
-            website: info.website,
-            email: info.email,
-            type: info.type,
-        })
+        
+        const res = await addEntity( info.id, info.name, info.address, info.phone, info.website, info.email, info.type )
+        console.log(`Institucion added successfully: ${JSON.stringify(res)}`);
 
         setInfo({
+            id: 0,
             name: "",
             address: "",
             phone: "",
@@ -58,6 +57,19 @@ const EntityForm = () => {
                 <form className="container-entity-form" onSubmit={onSubmit}>
                     <h1 className="title">Registrar entidad</h1>
                     <div className="body-form">
+
+                        <div className="form-information">
+                            <h6>ID</h6>
+                            <input
+                                type="number"
+                                name="id"
+                                onChange={onChange}
+                                placeholder="ID Institucion"
+                                className="input-EntityForm"
+                                required
+                            />
+                        </div>
+
                         <div className="form-information">
                             <h6>Nombre</h6>
                             <input
@@ -151,6 +163,7 @@ const EntityForm = () => {
                         type="submit"
                         className="submit-button"
                         disabled={validateForm}
+                        onClick={onSubmit}
                     >
                         Agregar
                     </button>

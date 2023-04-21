@@ -1,6 +1,7 @@
-.modalll, .overlay {
+.modalll {
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
     top: 0;
     left: 0;
     right: 0;
@@ -8,6 +9,13 @@
     position: fixed;
 }
 .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
     background: rgba(49,49,49,0.8);
 }
 .modalll-content {
@@ -21,7 +29,7 @@
     transform: translate(-50%, -50%);
     line-height: 1.4;
     font-weight: bold;
-    background: rgb(96, 94, 122);
+    background: var(--fifth-color);
     padding: 28px;
     border-radius: 3px;
     max-width: 600px;
@@ -52,6 +60,6 @@
     cursor: pointer;
 }
 .close-modal:hover {
-    background-color: #3d6e64;
+    background-color: #6e6885;
     color: #fff;
 }

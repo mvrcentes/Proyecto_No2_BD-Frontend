@@ -2,20 +2,75 @@ import MiniCard from "../../MiniCard/MiniCard"
 
 import "./CardFormDoctor.css"
 
-const CardFormDoctor = ({ title, options, note, type }) => {
+const CardFormDoctor = ({ doctor, onChange }) => {
+
     return (
-        <div className="card-form-patient">
-            <div className="patient-title">Paciente</div>
-            <MiniCard title="DPI" className="prueba">
-                <input type="text" placeholder="2134 56789 0123" className="patient-input-form"/>
+        <div className="card-form-doctor">
+            <div className="doctor-title">Doctor</div>
+            <MiniCard title="Num. Colegiado" className="prueba">
+                <input
+                    type="number"
+                    name="num_colegiado"
+                    placeholder="65789"
+                    className="doctor-input-form"
+                    value={doctor.num_colegiado}
+                    onChange={onChange}
+                />
             </MiniCard>
 
             <MiniCard title="Nombre">
-                <input type="text" placeholder="Nombre del paciente" className="patient-input-form"/>
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Dr./Dra. Nombre"
+                    className="doctor-input-form"
+                    value={doctor.nombre}
+                    onChange={onChange}
+                />
             </MiniCard>
 
-            <MiniCard title="Estado">
-                <input type="text" placeholder="Estado del paciente" className="patient-input-form"/>
+            <MiniCard title="Institucion">
+                <input
+                    type="number"
+                    name="institucion"
+                    placeholder="Hospital..."
+                    className="doctor-input-form"
+                    value={doctor.institucion}
+                    onChange={onChange}
+                />
+            </MiniCard>
+
+            <MiniCard title="Telefono">
+                <input
+                    type="text"
+                    name="telefono"
+                    placeholder="0000-0000"
+                    className="doctor-input-form"
+                    value={doctor.telefono}
+                    onChange={onChange}
+                />
+            </MiniCard>
+
+            <MiniCard title="Direccion">
+                <input
+                    type="text"
+                    name="direccion"
+                    className="doctor-input-form"
+                    placeholder="Direccion"
+                    value={doctor.direccion}
+                    onChange={onChange}
+                />
+            </MiniCard>
+
+            <MiniCard title="Especialidad">
+                <input
+                    type="text"
+                    name="especialidad"
+                    placeholder="Cardiologo"
+                    className="doctor-input-form"
+                    value={doctor.especialidad}
+                    onChange={onChange}
+                />
             </MiniCard>
         </div>
     )

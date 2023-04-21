@@ -36,7 +36,7 @@ export const incidences = async (dpi) => {
     }
 }
 
-export const incidencesByID = async ( dpi, id ) => {
+export const incidencesByID = async (dpi, id) => {
     try {
         return (await axios.get(`${server}/api/incidences/${dpi}/incidence/${id}`)).data
     } catch (error) {
@@ -44,7 +44,7 @@ export const incidencesByID = async ( dpi, id ) => {
     }
 }
 
-export const postIncidence = async ( dpi, data ) => {
+export const postIncidence = async (dpi, data) => {
     try {
         return (await axios.post(`${server}/api/incidences/${dpi}`, data)).data
     } catch (error) {
@@ -64,7 +64,7 @@ export const getDiseases = async () => {
 
 
 // Treatments
-export const getTreatmentsByDPI = async ( id ) => {
+export const getTreatmentsByDPI = async (id) => {
     try {
         return (await axios.get(`${server}/api/treatments/${id}`)).data
     } catch (error) {
@@ -81,16 +81,65 @@ export const getDoctors = async () => {
     }
 }
 
-export const updateDoctor = async ( id, institucion ) => {
+export const updateDoctor = async (id, institucion) => {
     try {
-        return (await axios.put(`${server}/api/usersEmployee/${id}`, 
-        {
-            id,
-            institucion   
-        })).data
+        return (await axios.put(`${server}/api/usersEmployee/${id}`,
+            {
+                id,
+                institucion
+            })).data
     } catch (error) {
         console.error(error)
     }
+}
+
+export const addDoctor = async (colegiate_number, entity, name, phone, address, speciality) => {
+    try {
+        return (await axios.post(`${server}/api/usersEmployee/`,
+            {
+                colegiate_number,
+                entity,
+                name,
+                phone,
+                address,
+                speciality
+            })).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const addUser = async (username, password, rol_id, num_colegiado) => {
+    try {
+        return (await axios.post(`${server}/api/usersEmployeeUser/`,
+            {
+                username,
+                password,
+                rol_id,
+                num_colegiado
+            })).data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export const addEntity = async (id, name, address, phone, website, email, type) => {
+
+    try {
+        return (await axios.post(`${server}/api/entities/`,
+            {
+                id,
+                type,
+                name,
+                address,
+                email,
+                phone,
+                website,
+            })).data
+    } catch (error) {
+        console.error(error)
+    }
+
 }
 
 // REPORTES
