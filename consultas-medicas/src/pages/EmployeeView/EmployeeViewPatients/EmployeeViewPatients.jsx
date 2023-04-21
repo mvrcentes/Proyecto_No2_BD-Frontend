@@ -14,7 +14,6 @@ const EmployeeViewPatients = () => {
 
     const onSearchChange = (e) => {
         setSearch(e.target.value)
-     
     }
 
     return (

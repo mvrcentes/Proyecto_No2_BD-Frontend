@@ -44,19 +44,47 @@ export const incidencesByID = async (dpi, id) => {
     }
 }
 
-export const postIncidence = async (dpi, data) => {
+export const postIncidence = async (incidencia, dpi_paciente, num_colegiado, institucion, enfermedad, diagnostico, fecha) => {
     try {
-        return (await axios.post(`${server}/api/incidences/${dpi}`, data)).data
+        return (await axios.post(`${server}/api/incidences/${dpi_paciente}`,
+            {
+                incidencia, 
+                dpi_paciente, 
+                num_colegiado, 
+                institucion, 
+                enfermedad, 
+                diagnostico, 
+                fecha
+            })).data
     } catch (error) {
         console.error(error)
     }
 }
 
+export const postTratamiento = async (id_tratamiento, id_incidencia, id_examen, id_cirugia, id_medicamento, evolucion, fecha, id_resultado) => {
+
+    try {
+        return (await axios.post(`${server}/api/treatments/${id_incidencia}`,
+            {
+                id_tratamiento,
+                id_incidencia,
+                id_examen,
+                id_cirugia,
+                id_medicamento,
+                evolucion,
+                fecha,
+                id_resultado
+            })).data
+    } catch (error) {
+        console.error(error)
+    }
+
+}
 
 //Diseases
 export const getDiseases = async () => {
     try {
-        return (await axios.get(`${server}/api/diseases`)).data
+        return (await axios.get(`${server}/api/diseases/`)).data
     } catch (error) {
         console.error(error)
     }

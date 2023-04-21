@@ -27,6 +27,26 @@ const ViewPatientMoreInfo = () => {
     const [data, setData] = useState([])
     const [search, setSearch] = useState("")
     const [modal, setModal] = useState(false)
+    const [incidencia, setIncidencia] = useState({
+        id_incidencia: 0, 
+        dpi: "", 
+        num_colegiado: 0, 
+        institucion: 0, 
+        id_enfermedad: 0, 
+        diagnostico: "", 
+        fecha: "",
+    })
+
+    const onChange = (e) => {
+        setIncidencia({
+            ...incidencia,
+            [e.target.name]: e.target.value,
+        })
+    }
+
+    const onSearchChange = (e) => {
+        setSearch(e.target.value)
+    }
 
     useEffect(() => {
         async function fetchData() {
@@ -36,26 +56,26 @@ const ViewPatientMoreInfo = () => {
         fetchData()
     }, [dpi])
 
-    const onSearchChange = (e) => {
-        setSearch(e.target.value)
+    const toggleModal = () => {
+        setModal(!modal)
     }
 
-    const handleModal = () => {
-        setModal(!modal)
+    const agregarIncidencia = async () => {
+        console.log("agregar incidencia")
+    
+        try {
+            const addedIncidence = await postIncidence(incidencia.id_incidencia, incidencia.dpi, incidencia.num_colegiado, incidencia.institucion, incidencia.id_enfermedad, incidencia.diagnostico, incidencia.fecha);
+            console.log(`Incidence added successfully: ${JSON.stringify(addedIncidence)}`);
+            // do something after the doctor is added successfully
+
+          } catch (error) {
+            console.error(`Error adding incidence: ${error}`);
+          }
+        
     }
 
     console.log(sessionToken)
 
-    const onClick = () => {
-        postIncidence(dpi, {
-            patient_dpi: dpi,
-            doctor_colegiate_number: sessionToken,
-            entity: "",
-            sickness: "",
-            exams: "",
-            surgeries: "",
-        })
-    }
 
     return (
         <EmployeeView>
@@ -67,14 +87,9 @@ const ViewPatientMoreInfo = () => {
                     ))}
                     <CreateRegisterView search={search} />
                 </div>
-                <PlusButton onClick={() => handleModal()} />
-
-                <Modalll
-                    modal={modal}
-                    handleClose={handleModal}
-                    onClick={onclick}
-                >
-                    <IncidenceForm></IncidenceForm>
+                <PlusButton onClick={toggleModal} />
+                <Modalll modal={modal} handleClose={toggleModal} onClick={agregarIncidencia}>
+                    <IncidenceForm incidencia={incidencia} onChange={onChange} />
                 </Modalll>
             </div>
         </EmployeeView>
