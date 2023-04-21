@@ -3,48 +3,50 @@ import React, { useState, useEffect, useContext } from "react"
 
 import axios from "axios"
 
-import "./style.css"
-
 import { useRolContext } from "../../contexts/RolProvider"
+import { useSessionContext } from "../../contexts/SessionProvider"
 
+import "./style.css"
 
 const Login = () => {
     const [username, setUsername] = useState("prueba")
     const [password, setPassword] = useState("prueba")
-    const { rol, setRol } = useRolContext();
+    const { rol, setRol } = useRolContext()
+    const { sessionToken ,setSessionToken } = useSessionContext()
     const navigate = useNavigate()
 
-    switch (rol) {
+    switch (sessionToken.rol_id) {
         case 0:
             return <Navigate to={"/adminviewentities"} />
-            
+
         case 1:
-            return <Navigate to={"/employeeViewPatients"} />       
+            return <Navigate to={"/employeeViewPatients"} />
     }
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log("calling app")
         postData()
             .then((response) => {
                 if (!response.data) {
-                     return console.error("error")
+                    return console.error("error")
                 }
                 setRol(response.data.rol_id)
             })
             .catch((error) => {
-                console.log(error)
+                console.error(error)
             })
     }
 
-
     const postData = async (event) => {
-        return await axios.post(
-            `http://127.0.0.1:4000/api/auth/signin`, {
-                username, 
-                password
-            } 
-        )
+        const r = await axios.post(`http://127.0.0.1:4000/api/auth/signin`, {
+            username,
+            password,
+        })
+        setSessionToken({
+            "rol_id": r.rol_id,
+            "num_colegiado": r.num_colegiado
+        })
+        return r
     }
 
     return (
@@ -108,7 +110,7 @@ const Login = () => {
                                                     />
                                                     <i className="input-icon uil uil-lock-alt"></i>
                                                 </div>
-                                                
+
                                                 <button
                                                     type="submit"
                                                     className="btn mt-4"
@@ -116,7 +118,6 @@ const Login = () => {
                                                 >
                                                     Inicar sesión
                                                 </button>
-                                    
                                             </form>
 
                                             <p className="mb-0 mt-4 text-center">
