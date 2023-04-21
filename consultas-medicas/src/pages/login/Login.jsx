@@ -15,7 +15,8 @@ const Login = () => {
     const { sessionToken ,setSessionToken } = useSessionContext()
     const navigate = useNavigate()
 
-    switch (sessionToken.rol_id) {
+    // switch (sessionToken.rol_id) {
+    switch (0) {
         case 0:
             return <Navigate to={"/adminviewentities"} />
 
@@ -24,6 +25,7 @@ const Login = () => {
     }
 
     const onSubmit = (event) => {
+        console.log('on submig')
         event.preventDefault()
         postData()
             .then((response) => {
@@ -73,7 +75,7 @@ const Login = () => {
                                             <h4 className="mb-4 pb-3">
                                                 Log In
                                             </h4>
-                                            <form onSubmit={onSubmit}>
+                                            <form>
                                                 <div className="form-group">
                                                     <input
                                                         type="username"

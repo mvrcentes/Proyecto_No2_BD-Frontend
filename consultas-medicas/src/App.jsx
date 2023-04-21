@@ -15,7 +15,8 @@ import AdminViewReports from './pages/AdminView/AdminViewReports/AdminViewReport
 
 //employee views
 import EmployeeViewPatients from './pages/EmployeeView/EmployeeViewPatients/EmployeeViewPatients'
-import ViewPatientMoreInfo from './pages/EmployeeView/EmployeeViewPatients/ViewPatientMoreInfo/ViewPatientMoreInfo'
+import ViewPatientMoreInfo from 
+'./pages/EmployeeView/EmployeeViewPatients/ViewPatientMoreInfo/ViewPatientMoreInfo'
 import TraetmentAccordion from './components/EmployeeView/TraetmentAccordion/TraetmentAccordion'
 import ViewPatientTreatments from './pages/EmployeeView/EmployeeViewPatients/ViewPatientTreatments/ViewPatientTreatments'
 import EmployeeViewReports from './pages/EmployeeView/EmployeeViewReports/EmployeeViewReports'
@@ -35,7 +36,7 @@ import Modalll from './components/Modal/Modalll'
 
 function App() {
     const { rol } = useRolContext();
-
+    console.log('APPPP')
     return (
         <div className="App">            
             <Routes>
@@ -47,7 +48,8 @@ function App() {
 
 
                 {/* Routes for Admin */}
-                <Route element={<ProtectedRoutes rol={rol} needs={0} redirectTo='/login'/>} >
+                {/* <Route element={<ProtectedRoutes rol={rol} needs={0} redirectTo='/login'/>} > */}
+                <Route element={<ProtectedRoutes rol={0} needs={0} redirectTo='/login'/>} >
                     <Route path="/adminviewentities" element={ <AdminViewEntities />} />
                     <Route path="/adminviewdoctors" element={ <AdminViewDoctors />} />
                     <Route path="/adminviewreports" element={ <AdminViewReports />} />

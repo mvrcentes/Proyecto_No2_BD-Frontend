@@ -1,6 +1,7 @@
 import axios from "axios"
 
-const server = "http://127.0.0.1:4000"
+// const server = "http://127.0.0.1:4000"
+const server = "http://192.168.0.5:4000"
 
 let FetchData = {}
 
@@ -91,6 +92,23 @@ export const updateDoctor = async ( id, institucion ) => {
         console.error(error)
     }
 }
+
+// REPORTES
+
+const report1 = await axios.get(server + "/api/reports/1")
+FetchData.getReport1 = report1.data
+
+const report2 = await axios.get(server + "/api/reports/2")
+FetchData.getReport2 = report2.data
+
+const report3 = await axios.get(server + "/api/reports/3")
+FetchData.getReport3 = report3.data
+
+const report4 = await axios.get(server + "/api/reports/4")
+FetchData.getReport4 = report4.data
+
+const report5 = await axios.get(server + "/api/reports/5")
+FetchData.getReport5 = report5.data
 
 
 
