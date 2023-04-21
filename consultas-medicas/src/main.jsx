@@ -5,16 +5,16 @@ import "./index.css"
 
 import { BrowserRouter } from "react-router-dom"
 import { RolProvider } from "./contexts/RolProvider"
-import { EntityIDProvider } from "./contexts/EntityIDProvider"
+import { SessionProvider } from "./contexts/SessionProvider"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <RolProvider>
-            <EntityIDProvider>
+        <SessionProvider>
+            <RolProvider>
                 <BrowserRouter>
                     <App />
                 </BrowserRouter>
-            </EntityIDProvider>
-        </RolProvider>
+            </RolProvider>
+        </SessionProvider>
     </React.StrictMode>
 )
