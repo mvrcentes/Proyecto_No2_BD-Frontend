@@ -7,22 +7,17 @@ import "./CreateDoctorRegisterView.css"
 import RegisterCard from "../registerCard/RegisterCard"
 
 //data
-import  { getDoctors }  from "../../../fetchData/FetchData"
-
+import { getDoctors } from "../../../fetchData/FetchData"
 
 const CreateDoctorRegisterView = ({ search }) => {
     const [data, setData] = useState([])
-    
-    const handleEntityChange = (registerIndex, newEntity) => {
-        const newRegisters = [...data]
-        newRegisters[registerIndex].direccion = newEntity
+
+    const fetchData = async () => {
+        const result = await getDoctors()
+        setData(result)
     }
 
     useEffect(() => {
-        async function fetchData() {
-            const result = await getDoctors()
-            setData(result)
-        }
         fetchData()
     }, [])
 
@@ -36,13 +31,9 @@ const CreateDoctorRegisterView = ({ search }) => {
         <div className="CreateRegisterView">
             {filteredDoctors.map((doctor, index) => (
                 <RegisterCard
-                    key={index}
-                    nameLastName={doctor.nombre}
-                    numCole={doctor.num_colegiado}
-                    entityName={doctor.institucion}
-                    entityAddress={doctor.direccion}
-                    onChange={handleEntityChange}
-                    index={index}
+                    key={doctor.id}
+                    doctor={doctor}
+                    refresh={fetchData}
                 />
             ))}
         </div>
