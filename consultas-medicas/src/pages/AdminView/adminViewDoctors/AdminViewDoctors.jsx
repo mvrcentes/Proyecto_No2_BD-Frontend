@@ -8,16 +8,25 @@ import SearchBar from "../../../components/searchBar/SearchBar"
 import CreateDoctorRegisterView from "../../../components/AdminView/DoctorRegisterView/createDoctorRegisterView/CreateDoctorRegisterView"
 import menuOptions from "../../../components/AdminView/MenuOptions"
 import PlusButton from "../../../components/PlusButton/PlusButton"
+import Modalll from "../../../components/Modal/Modalll"
+import CardFormPatient from "../../../components/EmployeeView/CardFormPatient/CardFormPatient"
 
 //style
 import "./AdminViewDoctors.css"
 
 const AdminViewDoctors = () => {
     const [search, setSearch] = useState("")
+    const [modal, setModal] = useState(false)
 
     const onSearchChange = (e) => {
         setSearch(e.target.value)
     }
+
+    const toggleModal = () => {
+        setModal(!modal)
+    }
+
+    console.log(modal)
 
     return (
         <View menuOptions={menuOptions} key={0}>
@@ -28,7 +37,10 @@ const AdminViewDoctors = () => {
                 <div className="doctorsContainer">
                     <CreateDoctorRegisterView search={search} />
                 </div>
-                <PlusButton />
+                <PlusButton onClick={toggleModal} />
+                <Modalll modal={modal} handleClose={toggleModal}>
+                    <CardFormPatient />
+                </Modalll>
             </div>
         </View>
     )

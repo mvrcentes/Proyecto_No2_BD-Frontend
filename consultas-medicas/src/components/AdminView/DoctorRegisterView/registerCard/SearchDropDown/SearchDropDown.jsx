@@ -4,7 +4,6 @@ import Form from "react-bootstrap/Form"
 
 //data
 import { getEntities } from "../../../../fetchData/FetchData"
-import { useEntityIDContext } from "../../../../../contexts/EntityIDProvider"
 
 const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div
@@ -53,38 +52,21 @@ const CustomMenu = React.forwardRef(
     }
 )
 
-const SearchDropDown = ({ register, onSelect, numCole }) => {
-    const [selectedItem, setSelectedItem] = useState(register)
-    const [data, setData] = useState([])
-    const { setEntityID } = useEntityIDContext()
-
-    useEffect(() => {
-        fetchData()
-    }, [])
-
-    const fetchData = async() => {
-        const result = await getEntities()
-        setData(result)
-    }
-
+const SearchDropDown = ({ value, onSelect, data }) => {
     return (
         <Dropdown
             onSelect={(eventKey) => {
                 onSelect(eventKey)
-                setSelectedItem(eventKey)
-                const selectedItemObj = data.find((item) => item.nombre === eventKey)
-
-                setEntityID(selectedItemObj.id)
             }}
         >
             <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-                {selectedItem}
+                {value}
             </Dropdown.Toggle>
 
             <Dropdown.Menu as={CustomMenu}>
-                {data.map((r, index) => (
-                    <Dropdown.Item key={index} eventKey={r.nombre}>
-                        {r.nombre}
+                {data.map(({ id, name }) => (
+                    <Dropdown.Item key={id} eventKey={id}>
+                        {name}
                     </Dropdown.Item>
                 ))}
             </Dropdown.Menu>

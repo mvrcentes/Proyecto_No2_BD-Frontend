@@ -1,17 +1,21 @@
 import { createContext, useState, useEffect, useContext } from "react"
 
-const EntityIDContext = createContext(null)
+const UserContext = createContext({})
 
-export const useEntityIDContext = () => useContext(EntityIDContext)
+export const useUserConext = () => useContext(UserContext)
 
-export const EntityIDProvider = ({ children }) => {
-    const [entityID, setEntityID] = useState(null)
+export const UserProvider = ({ children }) => {
+    const [user, setUser] = useState({
+        rol_id,
+        num_colegiado,
+        institucion
+    })
 
     return (
-        <EntityIDContext.Provider value={{ entityID, setEntityID }}>
+        <UserContext.Provider value={{ user, setUser }}>
             {children}
-        </EntityIDContext.Provider>
+        </UserContext.Provider>
     )
 }
 
-export default EntityIDContext
+export default UserContext

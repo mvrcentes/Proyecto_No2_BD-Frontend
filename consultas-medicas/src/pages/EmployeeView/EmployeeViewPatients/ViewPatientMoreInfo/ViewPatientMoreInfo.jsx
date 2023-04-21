@@ -9,8 +9,9 @@ import SearchBar from "../../../../components/searchBar/SearchBar"
 import InfoPatient from "../../../../components/EmployeeView/InfoPatient/InfoPatient"
 import CreateRegisterView from "../../../../components/Patient/registerView/CreateRegisterView"
 import PlusButton from "../../../../components/PlusButton/PlusButton"
-import Modal from "../../../../components/Modal/Modal"
+import Modal from "../../../../components/Modal/Modalll"
 import IncidenceForm from "../../../../components/EmployeeView/IncidenceForm/IncidenceForm"
+import Modalll from "../../../../components/Modal/Modalll"
 
 // Data
 import { patientByDPI } from "../../../../components/fetchData/FetchData"
@@ -21,12 +22,11 @@ const ViewPatientMoreInfo = () => {
     const { dpi } = useParams()
     const [data, setData] = useState([])
     const [search, setSearch] = useState("")
-    const [showModal, setShowModal] = useState(false)
+    const [modal, setModal] = useState(false)
 
     useEffect(() => {
         async function fetchData() {
             const result = await patientByDPI(dpi)
-            console.log(result)
             setData(result)
         }
         fetchData()
@@ -37,10 +37,8 @@ const ViewPatientMoreInfo = () => {
     }
 
     const handleModal = () => {
-        setShowModal(!showModal)
+        setModal(!modal)
     }
-
-    console.log(showModal)
 
     return (
         <EmployeeView>
@@ -53,11 +51,10 @@ const ViewPatientMoreInfo = () => {
                     <CreateRegisterView search={search} />
                 </div>
                 <PlusButton onClick={() => handleModal()} />
-                {showModal && (
-                    <Modal>
-                        <IncidenceForm></IncidenceForm>
-                    </Modal>
-                )}
+
+                <Modalll modal={modal} handleClose={handleModal}>
+                    <IncidenceForm></IncidenceForm>
+                </Modalll>
             </div>
         </EmployeeView>
     )

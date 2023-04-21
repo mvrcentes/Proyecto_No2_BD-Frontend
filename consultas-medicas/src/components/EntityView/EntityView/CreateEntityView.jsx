@@ -5,15 +5,25 @@ import HospitalCard from "../entityCard/EntityCard";
 import "./CreateEntityView.css";
 
 //data
-import FetchData from "../../fetchData/FetchData";
-const { getEntities } = FetchData
+import { getEntities } from "../../fetchData/FetchData";
+import { useEffect, useState } from "react";
 
 const CreateEntityView = ({ search }) => {
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const result = await getEntities()
+            setData(result)
+        }
+        fetchData()
+    }, [])
+
     const filteredEntities = search
-        ? getEntities.filter((hospital) =>
+        ? data.filter((hospital) =>
               hospital.nombre.toLowerCase().includes(search.toLowerCase())
           )
-        : getEntities;
+        : data;
 
     return (
         <div className="hospitals-container">
