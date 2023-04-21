@@ -1,51 +1,62 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 //style
 import "./RegisterCard.css"
 
 //components
 import SearchDropDown from "../registerCard/SearchDropDown/SearchDropDown"
+import SearchToggleDown from "../../../../components/SearchToggleDown/SearchToggleDown"
 
 //Data
-import { updateDoctor } from "../../../../components/fetchData/FetchData"
-import { useEntityIDContext } from "../../../../contexts/EntityIDProvider"
+import {
+    updateDoctor,
+    getEntities,
+} from "../../../../components/fetchData/FetchData"
 
-const RegisterCard = ({
-    nameLastName,
-    numCole,
-    entityName,
-    entityAddress,
-    onChange,
-    index,
-}) => {
-    const [availableUpdate, setAvailableUpdate] = useState(false)
-    const { entityID } = useEntityIDContext()
-    const onClick = async () => {
-        console.log(entityID)
-        await updateDoctor(numCole, entityID)
-        setAvailableUpdate(false)
+const RegisterCard = ({ doctor, refresh }) => {
+    const [idInstitucion, setidInstitucion] = useState(doctor.id_institucion)
+    const [data, setData] = useState(null)
+
+    const fetchData = async () => setData(await getEntities())
+
+    
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    if (!data) {
+        return "Loading"
     }
+
+    const handleUpdate = async () => {
+        await updateDoctor(doctor.num_colegiado, idInstitucion)
+        refresh()
+    }
+
+    console.log({data, idInstitucion})
 
     return (
         <div className="registerCard">
             <div className="fila">
-                <div className="nameLastName">{nameLastName}</div>
-                <div className="numCole">{numCole}</div>
+                <div className="nameLastName">{doctor.nombre}</div>
+                <div className="numCole">{doctor.num_colegiado}</div>
                 <div className="searchDropDown">
-                    <SearchDropDown
+                    <SearchToggleDown
                         className="entityName"
-                        register={entityName}
-                        numCole={numCole}
-                        onSelect={() => {
-                            onChange(index)
-                            setAvailableUpdate(true)
+                        value={
+                            data.find((e) => e.id === idInstitucion)?.nombre
+                        }
+                        onSelect={(id) => {
+                            setidInstitucion(Number(id))
                         }}
+                        data={data}
                     />
                 </div>
-                <div className="entityAddress">{entityAddress}</div>
+                <div className="entityAddress">{doctor.direccion}</div>
             </div>
-            {availableUpdate && (
-                <button className="updateRegister" onClick={onClick}>
+            { idInstitucion !== doctor.id_institucion && (
+                <button className="updateRegister" onClick={handleUpdate}>
                     actualizar
                 </button>
             )}
