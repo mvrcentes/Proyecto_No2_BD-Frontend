@@ -15,10 +15,7 @@ const IncidenceForms = ({ entityName, diseaseName, dpi }) => {
     const [diagnostico, setDiagnostico] = useState(null)
     const [entityID, setEntityID] = useState(null)
 
-    const fetchData = async () => {
-        const r = await getDiseases()
-        setDiseases(r)
-    }
+    const fetchData = async () => setData(await getDiseases())
 
     useEffect(() => {    
         fetchData()
@@ -46,7 +43,7 @@ const IncidenceForms = ({ entityName, diseaseName, dpi }) => {
             </MiniCard>
 
             <MiniCard title="Enfermedad">
-                <SearchToggleDown register="Escoge la enfermedad"  data={diseases} />
+                <SearchToggleDown value="Escoge la enfermedad"  data={diseases} />
             </MiniCard>
 
             <MiniCard title="Diagnostico">
