@@ -4,6 +4,7 @@ import "./Inventory.css"
 
 import FetchData from "../../../components/fetchData/FetchData"
 import { useState } from "react"
+import SearchBar from "../../../components/searchBar/SearchBar"
 
 const MiniCard_InventarioVacio = ({ tupla }) => {
     return (
@@ -55,9 +56,9 @@ const GenerarTitulo = (titulos) => {
     )
 }
 
-const GenerarContenido = (texto, boton, filtro) => {
+const GenerarContenido = (texto, boton, user_institucion, filtro=0) => {
     console.log("GenerarContenido: " + boton)
-    const finishTeacher = texto.filter(objeto => objeto.id_institucion == filtro)
+    const finishTeacher = texto.filter(objeto => objeto.id_institucion == user_institucion)
     switch (boton) {
         case 1:
             return (
@@ -78,14 +79,25 @@ const GenerarContenido = (texto, boton, filtro) => {
                 </div>
             )
         case 3:
-            return (
-                // "ID Institución", "Institución", "Categoria", "Descripción", "Disponible", "Cant Max", "Caducidad"
-                <div className="contenido">
-                    {finishTeacher.map((tupla) => (
-                        <MiniCard_InventarioFULL tupla={tupla} />
-                    ))}
-                </div>
-            )
+            if(filtro == 0){ 
+                return (
+                    <div className="contenido">
+                        {finishTeacher.map((tupla) => (
+                            <MiniCard_InventarioFULL tupla={tupla} />
+                        ))}
+                    </div>
+                )
+            }
+            else{
+                const finishTeacher2 = texto.filter(objeto => (objeto.descripcion).toLowerCase().includes(filtro.toLowerCase()))
+                return (
+                    <div className="contenido">
+                        {finishTeacher2.map((tupla) => (
+                            <MiniCard_InventarioFULL tupla={tupla} />
+                        ))}
+                    </div>
+                )
+            }
         default:
             break;
     }
@@ -144,9 +156,10 @@ const Inventory = () => {
                     <QueryButton titulo={'Inventario'} no={3} />
                     <QueryButton titulo={'Inventario por expirar'} no={2} />
                 </div>
-                <div className="ReportContainer">                       
+                <div className="ReportContainer">  
+                    {boton === 3 && <SearchBar value={search} onChange={useSearch} />}            
                     {GenerarTitulo(titulos)}
-                    {GenerarContenido(texto, boton, 2)} {/* METER EN EL 1 EL ID DE LA INSTITUCION DEL USUARIO */}
+                    {GenerarContenido(texto, boton, 2, search)} {/* METER EN EL 1 EL ID DE LA INSTITUCION DEL USUARIO */}
                 </div>
             </div>
         </EmployeeView>

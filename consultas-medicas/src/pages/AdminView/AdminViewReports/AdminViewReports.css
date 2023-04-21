@@ -10,24 +10,28 @@
 }
 
 .QueryButtonContainer {
-display: inline-block;
-padding: 5px;
-gap: 20px;
+  display: inline-block;
+  padding: 5px;
+  gap: 20px;
 }
 
 .ReportContainer {
-height: 100%;
-width: 100%;
-background-color: var(--main-color);  
-/* background-color: aqua; */
-border-radius: 15px;
-padding: 25px;
-gap: 20px;
-display: flex;
-flex-direction: column;
-/* position: relative;
-right: 350px;
-top: 150px; */
+  /* height: 100%;
+  width: 100%; */
+  background-color: var(--main-color);  
+  border-radius: 15px;
+  padding: 25px;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+  min-width: 650px;
+  max-height: 500px;
+  min-height: 500px;
+  /* max-height: 300px; */
+  /* min-height: 250px; */
+  overflow-y: auto; 
+  /* height: 100px; */
 }
 
 .prueba-centrar {
